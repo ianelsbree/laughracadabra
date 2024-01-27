@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/renpy
-# Edit at https://www.toptal.com/developers/gitignore?templates=renpy
+# Created by https://www.toptal.com/developers/gitignore/api/renpy,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=renpy,visualstudiocode
 
 ### Renpy ###
 # Don't track content of these folders #
@@ -28,6 +28,23 @@ errors.txt
 traceback.txt
 files.txt
 
-# End of https://www.toptal.com/developers/gitignore/api/renpy
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
 
-.vscode/
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
+# End of https://www.toptal.com/developers/gitignore/api/renpy,visualstudiocode
