@@ -159,6 +159,8 @@ label cafe_scene:
     scene bg cafe
     with fade
 
+    play music "audio/bgm cafe.mp3"
+
     "You make your way across a baren field to a small, cozy cafe made of black brick. The aroma of strong coffee and bitter chocolate emenates from the little building."
 
     me "A coffee shop? Huh, maybe this place isn't so bad-"
@@ -254,8 +256,11 @@ label desert_scene:
     jump scene_select
 
 label beef_scene:
+    
     scene bg beefhouse
     with fade
+
+    play music "audio/bgm beefhouse.mp3"
 
     show beef hag
 
@@ -379,6 +384,7 @@ label beef_scene:
     jump scene_select
 
 label tropics_scene:
+
     scene bg frogroom
     with fade
 
@@ -510,6 +516,7 @@ label ocean_floor:
 
 
 label town_scene:
+    
     scene bg townsquare
     with fade
 
@@ -523,7 +530,10 @@ label town_scene:
     jump scene_select
 
 label clown_town:
+    
     scene bg clowntown
+    with fade
+
     play music "audio/bgm clowntown.mp3"
 
     me "Hehehehehe."
@@ -537,6 +547,8 @@ label clown_town:
 
 label down_town:
     scene bg downtown
+    with fade
+    
     play music "audio/bgm downtown.mp3"
 
     me "Damn."
