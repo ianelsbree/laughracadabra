@@ -16,8 +16,9 @@ define slip = Character("Slip", color="#1e2900", image="slip")
 define slay = Character("Slay", color="#61012d", image="slay")
 define gun = Character("Gun", color="#6b1414", image="gun")
 define judge = Character("", what_font="Jokerman-Regular.ttf", what_size=40)
-define shrimp = Character("The High Prawn Wizard", image="shrimp")
+define shrimp = Character("The High Prawn Wizard", color="#0000000", image="shrimp")
 define frog = Character("Frogbert", color="#3a703aff", image="frog")
+define bug = Character("Persinnamon", color="#533991ff", image="bug")
 
 # Wizard health variables
 default skaterHealth = 0
@@ -452,6 +453,8 @@ label desert_scene:
 
     scene bg gundesert
     with fade
+    
+    play music "audio/bgm gun.mp3"
 
     show gun neutral
 
@@ -742,7 +745,7 @@ label tropics_scene:
     show frogfrog neutral
 
     menu:
-        "What the fuck.":
+        "What the??":
             show frogfrog speak
             frog "Have you never seen excellence before?"
             me "My apologies. I didn't mean to offend."
@@ -759,12 +762,19 @@ label tropics_scene:
     show frogfrog neutral
 
     menu:
-        "Bad joke.":
-            show frogfrog disgust
+        "How does a frog feel when he has a broken leg?":
+            frog "How?"
 
+            me "Unhoppy!"
+
+            show frogfrog disgust
             frog "Don't strain yourself."
 
-        "Good joke.":
+        "Why are frogs so happy?":
+            frog "Why?"
+
+            me "They eat whatever bugs them!"
+
             show frogfrog laugh
             $ frogHealth += 1
 
@@ -777,7 +787,68 @@ label tropics_scene:
     if frogHealth == 3:
         show hp 3
 
-    jump scene_select
+    show frogfrog neutral
+
+    menu:
+        "What do you call a fish with no eyes?":
+            frog "Don't say it."
+
+            me "Amblyopsidae! Get it?"
+            me "Because they are fish with no eyes! Literaly!"
+
+            show frogfrog laugh
+            frog "Ribbit, ribbit!"
+            $ frogHealth += 1
+        
+        "What do you call a fish with no eyes?":
+            show frogfrog neutral
+            frog "Don't say it."
+
+            me "Fsh."
+
+            show frogfrog disgust
+            frog "....."
+
+    if frogHealth == 1:
+        show hp 1
+    if frogHealth == 2:
+        show hp 2
+    if frogHealth == 3:
+        show hp 3
+    
+    show frogfrog neutral
+
+    menu:
+        "What do you call a frog that lies?":
+            frog "What?"
+            me "An am-fib-ian!"
+
+            show frogfrog laugh
+            frog "Ahahaha-ibbit-haha!"
+
+            $ frogHealth += 1
+
+        "What happens when two frogs collide?":
+            frog "What?"
+
+            me "They get tongue-tied."
+            
+            show frogfrog disgust
+            frog "That's inappropriate."
+    
+    if frogHealth <= 0:
+        frog "It's best that you leave."
+    if frogHealth == 1:
+        show hp 1
+    if frogHealth == 2:
+        show hp 2
+    if frogHealth == 3:
+        show hp 3
+        frog "No one has-ibbit made me -ribbit- laugh that much in a long time!"
+
+    menu:
+        "It's a little hot. It would be a good idea to hydrate.":
+            jump ocean_floor
 
 
 label ocean_floor:
@@ -904,8 +975,103 @@ label ocean_floor:
 
     show shrimp_neutral
     shrimp "Perhaps we shall meet again, mere mortal. Now begone from my throne of the High Prawn Wizard!"
+    jump bug_scene
 
+label bug_scene:
+    scene bg bug
+    with fade
 
+    play music "audio/bgm bug.mp3"
+
+    show bug neutral
+    bug " ……."
+
+    show hp 0:
+            zoom 0.5
+            xalign 0.05
+            yalign 0.05
+    
+    me "Hi?"
+
+    bug " ………."
+
+    bug "hello… {p}I heard you’d be heading over but I didn’t realize I'd be so soon.{p} My name’s Persinamon by the way."
+
+    me "Nice to meet you, I’m [name]. "
+
+    me "I’m supposed to fight you, I think?"
+
+    bug "Oh! Okay, I guess…if you want…"
+
+    menu:
+        "How do you ask a Gardener out on a date?":
+            bug "I don’t know…"
+            me "Have and Plants this evening?"
+            bug "Hehehe…th-that’s pretty funny…do you have any more jokes?"
+            $ bugHealth += 1
+
+        "Two cannibals were eating a stand-up comedian.":
+            me "One says to the other, “Does this taste funny to you?” The other says, “No.”"
+            me "And they keep eating."
+
+            show bug upset
+            bug "….thats in poor taste…."
+    
+    show bug neutral
+    if bugHealth == 1:
+        show hp 1
+    if bugHealth == 2:
+        show hp 2
+    if bugHealth == 3:
+        show hp 3
+
+    menu:
+        "Why did the thief bring a ladder to the bank robbery?":
+            bug "…Umm, I don’t know…"
+            me "He wanted to go for the high interest rates!"
+            show bug sad
+            bug "…stealing is not very good…"
+
+        "What do you call a snowman that a snail made?":
+            bug "W-what do you call it?"
+            me "A slow-man!"
+            show bug laugh
+            bug "Wow, th-that’s so silly!"
+            $ bugHealth += 1
+
+    show bug neutral
+    if bugHealth == 1:
+        show hp 1
+    if bugHealth == 2:
+        show hp 2
+    if bugHealth == 3:
+        show hp 3
+
+    menu:
+        "What is a murderer’s favorite genre of music?":
+            bug "….I don’t know…."
+            me "Death Metal!"
+            show bug disgust
+            bug "Th-that’s horrible…"
+
+        "What kind of bug likes being a DJ the most?":
+            bug "I’m not sure, w-which one?"
+            me "A Beat-le!"
+            show bug laugh
+            bug "Hahaha! That’s a very good one…hehehe…"
+            $ bugHealth += 1
+
+    if bugHealth <= 0:
+        bug "I don’t like your sense of humor very much. I don’t think that we can be friends. Please get out of here!"
+    if bugHealth == 1:
+        show hp 1
+    if bugHealth == 2:
+        show hp 2
+    if bugHealth == 3:
+        show hp 3
+        bug "You’re really funny! It's been lovely to hang out with you! Let’s hang out again sometime!"
+
+    jump town_scene
 
 label town_scene:
     
