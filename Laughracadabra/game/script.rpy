@@ -263,6 +263,16 @@ label skatepark_scene:
 
             bo "...{p}If you'd been funnier, I would have laughed. Like this!"
 
+            $ skaterHealth = 3
+
+            if skaterHealth == 1:
+                show hp 1
+            if skaterHealth == 2:
+                show hp 2
+            if skaterHealth == 3:
+                show hp 3
+
+
             show bo thumb
 
         "Knock, knock!":
@@ -424,7 +434,9 @@ label desert_scene:
         yalign 0.05
     with easeinleft
 
+    show gun talk
     gun "COME TO DUEL ME??{p} THE FEARED OUTLAW GUN OF THIS HERE DESERT????"
+
 
     gun "HOPE YOU'VE GOT GOOD REFLEXES PRRRRTNER."
 
@@ -434,10 +446,14 @@ label desert_scene:
         extend ""
         "Why did the chicken cross the road?":
 
+            show gun shy
             gun "HMMM WHY?"
 
             me "It exploded."
 
+            show gun explode
+            pause 2.0
+            show gun silly
             gun "HEHE SPLENDID!! NOW GO AGAIN!"
             play sound "audio/sfx clownhonk.mp3"
 
@@ -456,8 +472,10 @@ label desert_scene:
 
             me "Purr-ple!"
 
+            show gun upset
             gun "ARE YA MAKIN' FUN OF ME??? YOU'RE DEAD MEAT!!!"
 
+    show gun talk
     gun "GIVE ME ANOTHER ONE!!!"
 
     menu:
@@ -468,6 +486,7 @@ label desert_scene:
 
             me "Mice crispies!"
 
+            show gun upset
             gun "ARE YOU MAKIN' FUN OF ME?? YOU RUDE RUSTY HORSESHOE!!! YOU ROTTEN CACTUS FRUIT!!! YOU DUSTY TUMBLEWEED!!!!!"
 
         "A man, a horse, and a cattle dog walked into a bar.":
@@ -476,6 +495,9 @@ label desert_scene:
 
             me "They exploded."
 
+            show gun explode 
+            pause 2.0
+            show gun silly
             gun "AHHHHAHAHAHAH WONDERFUL! TELL ME ANOTHER!!"
             play sound "audio/sfx clownhonk.mp3"
 
@@ -488,6 +510,7 @@ label desert_scene:
             if beefHealth == 3:
                 show hp 3
 
+    show gun neutral
     gun "LAST CHANCE!!!"
 
     menu:
@@ -498,6 +521,9 @@ label desert_scene:
 
             me "An exploded horse!"
 
+            show gun explode
+            pause 2
+            show gun silly
             gun "YEEE PAWWWW! YOU'RE ONE FUNNY FELLOW, PRRRRTNER!"
             play sound "audio/sfx clownhonk.mp3"
 
@@ -522,6 +548,7 @@ label desert_scene:
 
             me "Hisstory."
 
+            show gun mad
             gun "ARE YOU MAKIN FUN OF ME??? I'M GONNA KILL YA WITH MY GUN!!!"
 
             gun "GET OUT OF MY DESERT YOU HOOLIGAN BEFORE I PUT YOU SIX FEET UNDER!"
@@ -723,12 +750,12 @@ label tropics_scene:
 
 
 label ocean_floor:
-    scene bg oceanfloor
+    scene bg seafloor
     with fade
 
     me "Am I underwater???"
 
-    show shrimp neutral
+    show shrimp_neutral
     shrimp "BEHOLD, mere mortal!"
 
     me "..."
@@ -748,7 +775,7 @@ label ocean_floor:
         "What do you call a prawn who will not share his plant material, decaying organic matter, micro-organisms, small shellfish and worms?":
             shrimp "Hmm?"
             me "Shelfish!"
-            show shrimp mad
+            show shrimp_displeased
             shrimp "Not funny!"
 
         "What did one prawn say to his special prawn friend?":
@@ -767,10 +794,10 @@ label ocean_floor:
             if shrimpHealth == 3:
                 show hp 3
 
-            show shrimp laugh
+            show shrimp_laughter
             shrimp "Ah! Ah ha ha!"
 
-    show shrimp neutral
+    show shrimp_neutral
     shrimp "Tell me another, you fool!"
 
     menu:
@@ -791,7 +818,7 @@ label ocean_floor:
             if shrimpHealth == 3:
                 show hp 3
 
-            show shrimp laugh
+            show shrimp_laughter
             shrimp "Wow! You are a very amusing mortal!"
 
         "How did the prawn perish?":
@@ -800,10 +827,10 @@ label ocean_floor:
 
             me "They contracted a deadly krillness!"
 
-            show shrimp mad
+            show shrimp_displeased
             shrimp "That is not a funny topic! I do not laugh! No no!"
 
-    show shrimp neutral
+    show shrimp_neutral
     shrimp "One last chance at a joke for you!"
 
     menu:
@@ -818,7 +845,7 @@ label ocean_floor:
 
             shrimp "......"
 
-            show shrimp laugh
+            show shrimp_laughter
             play sound "audio/sfx clownhonk.mp3"
             shrimp "OH, I understand! Because I am a shrimp! Hahahahahahaha!!!"
 
@@ -841,10 +868,10 @@ label ocean_floor:
 
             shrimp "......"
 
-            show shrimp mad
+            show shrimp_displeased
             shrimp "Not amusing enough. Begone!"
 
-    show shrimp neutral
+    show shrimp_neutral
     shrimp "Perhaps we shall meet again, mere mortal. Now begone from my throne of the High Prawn Wizard!"
 
 
