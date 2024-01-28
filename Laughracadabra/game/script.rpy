@@ -17,6 +17,20 @@ default skaterHealth = 3
 default gothHealth = 3
 default gunHealth = 3
 
+label scene_select:
+    menu:
+        "Where should I go next?"
+
+        "The Skatepark":
+            jump skater_wiz
+
+        "The Coffee Shop":
+            jump goth_cafe
+        
+        "The Desert":
+            jump gun_wiz
+
+
 # The game starts here.
 label start:
 
@@ -39,7 +53,7 @@ label start:
     "What does that sign say?"
 
     "{size=+10}\"TAKE A MUG ON YOUR WAY OUT\"{/size}"
-    
+
     me "They're all so good! Which one should I choose?"
 
     menu:
@@ -112,32 +126,35 @@ label skater_wiz:
 
     bo "What brings your here?"
 
-    return
+    jump scene_select
 
 
 label goth_cafe:
 
-    # scene bg cafe
+    scene bg cafe
+    with fade
 
     "You make your way across a baren field to a small, cozy cafe made of black brick. The aroma of strong coffee and bitter chocolate emenates from the little building."
 
-    me "A coffee shop in purgatory? Huh, maybe this place isn't so bad--"
+    me "A coffee shop? Huh, maybe this place isn't so bad-"
 
     "A tired looking goth lady walks up to the counter in front of you."
 
+    show melon neutral
     show hp 3:
         xalign 0.0
         yalign 0.0
     
-    melon "...hi."
+    melon "...Hi."
 
     melon "..."
 
-    melon "......."
+    melon "......"
 
     melon "...What can I get you?"
 
     menu:
+        melon "...What can I get you?{fast}"
         "Bad choice. Take damage. (Replace this with dialogue.)":
             $ gothHealth -= 1
             if gothHealth == 2:
@@ -188,11 +205,13 @@ label goth_cafe:
     else:
         jump gun_wiz
 
-    return
+    jump scene_select
 
 
 label gun_wiz:
+
     scene bg desert
+    with fade
 
     me "Add dialogue."
 
@@ -200,7 +219,7 @@ label gun_wiz:
         xalign 0.0
         yalign 0.0
     
-    return
+    jump scene_select
 
 
 label clown_town:
@@ -209,3 +228,4 @@ label clown_town:
     me "Damn."
 
     return
+
