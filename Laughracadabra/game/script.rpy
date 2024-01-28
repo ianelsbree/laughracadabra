@@ -36,6 +36,9 @@ label scene_select:
 
         "Beef's House":
             jump beef_house
+        
+        "The Townsquare":
+            jump devil_wiz
 
 # The game starts here.
 label start:
@@ -270,6 +273,12 @@ label beef_house:
 
 label frog_wiz:
     scene bg frogroom
+    with fade
+
+    jump scene_select
+
+label devil_wiz:
+    scene bg townsquare
     with fade
 
     jump scene_select
