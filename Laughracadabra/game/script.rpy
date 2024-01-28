@@ -16,6 +16,12 @@ define slip = Character("Slip", color="#1e2900", image="slip")
 define slay = Character("Slay", color="#61012d", image="slay")
 define gun = Character("Gun", color="#6b1414", image="gun")
 define judge = Character("", what_font="Jokerman-Regular.ttf", what_size=40)
+define marble = Character("Marble", color="#000000")
+define beef = Character("Beef", color="#000062")
+define slip = Character("Slip", color="#1e2900")
+define slay = Character("Slay", color="#61012d")
+define shrimp = Character("The High Prawn Wizard")
+define frog = Character("Frogbert", color="#3a703aff")
 
 # Wizard health variables
 default skaterHealth = 0
@@ -52,6 +58,9 @@ label scene_select:
         
         "The Town Square":
             jump town_scene
+
+        "The Ocean Floor":
+            jump ocean_floor
 
 # The game starts here.
 label start:
@@ -164,7 +173,9 @@ label cafe_scene:
     scene bg cafe
     with fade
 
-    "You make your way across a barren field to a small, cozy cafe made of black brick. The aroma of strong coffee and bitter chocolate emenates from the little building."
+    play music "audio/bgm cafe.mp3"
+
+    "You make your way across a baren field to a small, cozy cafe made of black brick. The aroma of strong coffee and bitter chocolate emenates from the little building."
 
     me "A coffee shop? Huh, maybe this place isn't so bad-"
 
@@ -205,6 +216,7 @@ label cafe_scene:
                 show hp 3
 
     menu:
+        extend ""
         "Bad joke 2. (Replace this with dialogue.)":
             marble "You're not funny."
 
@@ -221,6 +233,7 @@ label cafe_scene:
                 show hp 3
 
     menu:
+        extend ""
         "Bad joke 3. (Replace this with dialogue.)":
             marble "You suck."
 
@@ -268,8 +281,11 @@ label desert_scene:
             jump beef_scene
 
 label beef_scene:
+    
     scene bg beefhouse
     with fade
+
+    play music "audio/bgm beefhouse.mp3"
 
     show beef hag
 
@@ -287,19 +303,113 @@ label beef_scene:
 
     beef -hag "That's better."
 
-    me "Haha what if joke."
+    beef "So go on. Make me laugh!"
 
-    # show beef neutral_boob
-    # with hpunch
+    me "Uhh... Let's see..." 
 
-    beef boob @ laugh "AHAHAHAHAAA what a jester you are!"
-    beef "i am serious now"
+    menu:
+        "What's the difference between an old bus stop and a lobster with big breasts?":
+
+            beef "Hmm?"
+
+            me "One's a crusty bus station, and the other's a busty crustacean!"
+
+            show beef laugh_boob
+            beef "Aha! That's a good one!"
+            play sound "audio/sfx clownhonk.mp3"
+
+            $ beefHealth += 1
+
+            if beefHealth == 1:
+                show hp 1
+            if beefHealth == 2:
+                show hp 2
+            if beefHealth == 3:
+                show hp 3
+
+        "Why was six afraid of seven?":
+
+            beef "Why?"
+
+            me "Because seven ate nine!"
+
+            show beef irritated
+            beef "A numbers joke? Laaaaame."
+
+    show beef neutral
+    beef "Let's see what else you've got!"
+
+    menu:
+        "Want to hear a poop joke?":
+
+            beef "Yes! Tell me."
+
+            me "Ah never mind, they all stink!"
+
+            show beef laugh_boob
+            beef "Ha! I like that. You're real funny."
+            play sound "audio/sfx clownhonk.mp3"
+
+            $ beefHealth += 1
+
+            if beefHealth == 1:
+                show hp 1
+            if beefHealth == 2:
+                show hp 2
+            if beefHealth == 3:
+                show hp 3
+
+        "What did the triangle say to the square?":
+
+            beef "What?"
+
+            me "You're pointless!"
+
+            show beef irritated_boob
+            beef "Dude, shapes? Really? Not cool."
+
+    show beef neutral_boob
+    beef "Alright, last try. Give me everything you've got!"
+
+    menu:
+
+        "Are monsters good at math?":
+
+            beef "I don't know, are they?"
+
+            me "Not unless you Count Dracula!"
+
+            show beef irritated_boob
+            beef "That joke sucks, man. Two thumbs down."
+
+        "What do you call a cow with no legs?":
+
+            beef "I don't know, what?"
+
+            me "Ground beef!"
+
+            show beef laugh_boob
+            beef "Ground beef! Because he's on the ground! Ahahaha."
+            play sound "audio/sfx clownhonk.mp3"
+
+            $ beefHealth += 1
+
+            if beefHealth == 1:
+                show hp 1
+            if beefHealth == 2:
+                show hp 2
+            if beefHealth == 3:
+                show hp 3
+
+    show beef neutral_boob
+    beef "Now get outta here, kid."
 
     menu:
         "Take a trip to the tropics.":
             jump tropics_scene
 
 label tropics_scene:
+
     scene bg frogroom
     with fade
 
@@ -310,13 +420,152 @@ label tropics_scene:
         zoom 0.5
         xalign 0.05
         yalign 0.05
-    with easeinleft
+    
+    show frogfrog speak
+    frog "Ribbit."
 
     menu:
-        "Go to town.":
-            jump town_scene
+        "What the fuck.":
+            show frogfrog speak
+            frog "Have you never seen excellence before?"
+        
+        "Oh, I love frogs!":
+            show frogfrog laugh
+            frog "Finally, a person with taste in this hellscape."
+
+        "Kiss the frog.":
+            show frogfrog disgust
+            frog "Stay away from me."
+
+    jump scene_select
+
+
+label ocean_floor:
+    scene bg oceanfloor
+    with fade
+
+    me "Am I underwater???"
+
+    show shrimp neutral
+    shrimp "BEHOLD, mere mortal!"
+
+    me "..."
+
+    shrimp "You DARE approach me? 'Tis I, the HIGH PRAWN WIZARD!"
+
+    shrimp "Tell me a witty jest, at your peril!!!"
+    show hp 0:
+            zoom 0.5
+            xalign 0.05
+            yalign 0.05
+
+    me "Alright, let's give it a shot..."
+
+    menu:
+        "What do you call a prawn who will not share his plant material, decaying organic matter, micro-organisms, small shellfish and worms?":
+            shrimp "Hmm?"
+            me "Shelfish!"
+            show shrimp mad
+            shrimp "Not funny!"
+
+        "What did one prawn say to his special prawn friend?":
+
+            shrimp "Do tell me!"
+
+            me "You're one in a krillion!!!"
+            play sound "audio/sfx clownhonk.mp3"
+
+            $ shrimpHealth += 1
+
+            if shrimpHealth == 1:
+                show hp 1
+            if shrimpHealth == 2:
+                show hp 2
+            if shrimpHealth == 3:
+                show hp 3
+
+            show shrimp laugh
+            shrimp "Ah! Ah ha ha!"
+
+    show shrimp neutral
+    shrimp "Tell me another, you fool!"
+
+    menu:
+        "What happened to the prawn who's business took off?":
+
+            shrimp "Tell me! I must know!"
+
+            me "They became a krillionaire!"
+            play sound "audio/sfx clownhonk.mp3"
+
+            $ shrimpHealth += 1
+
+            if shrimpHealth == 1:
+                show hp 1
+            if shrimpHealth == 2:
+                show hp 2
+            if shrimpHealth == 3:
+                show hp 3
+
+            show shrimp laugh
+            shrimp "Wow! You are a very amusing mortal!"
+
+        "How did the prawn perish?":
+
+            shrimp "How did they indeed?"
+
+            me "They contracted a deadly krillness!"
+
+            show shrimp mad
+            shrimp "That is not a funny topic! I do not laugh! No no!"
+
+    show shrimp neutral
+    shrimp "One last chance at a joke for you!"
+
+    menu:
+        "What did the prawn say when discussing options for urban housing?":
+
+            shrimp "Hmm?"
+
+            me "Apartment complex? I find it quite SHRIMPLE!"
+
+            shrimp "..."
+
+            shrimp "......"
+
+            show shrimp laugh
+            play sound "audio/sfx clownhonk.mp3"
+            shrimp "OH, I understand! Because I am a shrimp! Hahahahahahaha!!!"
+
+            $ shrimpHealth += 1
+
+            if shrimpHealth == 1:
+                show hp 1
+            if shrimpHealth == 2:
+                show hp 2
+            if shrimpHealth == 3:
+                show hp 3
+
+        "What do opposing prawns do in warfare?":
+
+            shrimp "Do tell?"
+
+            me "They Krill each other!"
+
+            shrimp "..."
+
+            shrimp "......"
+
+            show shrimp mad
+            shrimp "Not amusing enough. Begone!"
+
+    show shrimp neutral
+    shrimp "Perhaps we shall meet again, mere mortal. Now begone from my throne of the High Prawn Wizard!"
+
+
 
 label town_scene:
+    
     scene bg townsquare
     with fade
 
@@ -354,7 +603,10 @@ label judgement_scene:
     # "hehejhiuuiiiiiiiiiiiiiiiiiiii"
 
 label clown_town:
+    
     scene bg clowntown
+    with fade
+
     play music "audio/bgm clowntown.mp3"
 
     me "Hehehehehe."
@@ -368,6 +620,8 @@ label clown_town:
 
 label down_town:
     scene bg downtown
+    with fade
+
     play music "audio/bgm downtown.mp3"
 
     me "Damn."
