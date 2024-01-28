@@ -41,10 +41,10 @@ label start:
     me "I think I see something in the distance over there. It looks like... a skate park?"
 
     menu:
-        "Head towards the run down skate park":
+        "Head towards the run down skate park.":
             jump skater_wiz
         
-        "Fuck that. Let's go to the cafe":
+        "Fuck that. Let's go to the cafe.":
             jump goth_cafe
 
 
@@ -92,16 +92,44 @@ label goth_cafe:
         "Mid choice. No damage. (Replace this with dialogue.)":
             "Boring."
         
+    menu:
+        "Bad choice 2. Take damage. (Replace this with dialogue.)":
+            $ gothHealth -= 1
+            
+            "Ouch."
+
+        "Mid choice. No damage. (Replace this with dialogue.)":
+            "Zzz."
+    
+    menu:
+        "Bad choice 3. Take damage. (Replace this with dialogue.)":
+            $ gothHealth -= 1
+            
+            "Ouch."
+
+        "Mid choice. No damage. (Replace this with dialogue.)":
+            "..."
+    
+    melon "Get out."
+    if gothHealth <= 0:
+        jump clown_town
+    else:
+        jump gun_wiz
+
     return
 
 
 label gun_wiz:
     scene bg desert
 
+    me "Add dialogue."
+
     return
 
 
 label clown_town:
-    scene bg clown_town
+    scene bg clowntown
+    
+    me "Damn."
 
     return
