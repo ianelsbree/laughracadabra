@@ -10,10 +10,12 @@ define me = Character("[name]")
 define narrator = Character(what_italic=True)
 define skater_wizard = Character("Skater Wizard", image="bo")
 define bo = Character("Bo Rad", color="#ff47cc", image="bo")
-define marble = Character("Marble", color="#000000")
-define beef = Character("Beef", color="#000062")
-define slip = Character("Slip", color="#1e2900")
-define slay = Character("Slay", color="#61012d")
+define marble = Character("Marble", color="#000000", image="marble")
+define beef = Character("Beef", color="#000062", image="beef")
+define slip = Character("Slip", color="#1e2900", image="slip")
+define slay = Character("Slay", color="#61012d", image="slay")
+define gun = Character("Gun", color="#6b1414", image="gun")
+define judge = Character("", what_font="Jokerman-Regular.ttf", what_size=40)
 
 # Wizard health variables
 default skaterHealth = 0
@@ -24,6 +26,10 @@ default beefHealth = 0
 default devilHealth = 0
 default bugHealth = 0
 default shrimpHealth = 0
+
+define judgement = 0
+image spinner clown = Movie(play="video0.mp4", keep_last_frame=True)
+image spinner down = Movie(play="video0.mp4", keep_last_frame=True)
 
 label scene_select:
     menu:
@@ -135,6 +141,7 @@ label skatepark_scene:
         zoom 0.5
         xalign 0.05
         yalign 0.05
+    with easeinleft
 
     skater_wizard "What's groovy, man?{w=1.0} What's your name?" (window_background="gui/boring_textbox.png")
 
@@ -148,25 +155,29 @@ label skatepark_scene:
     
     bo "What brings you here?"
 
-    jump scene_select
+    menu:
+        "Explore the field":
+            jump cafe_scene
 
 label cafe_scene:
 
     scene bg cafe
     with fade
 
-    "You make your way across a baren field to a small, cozy cafe made of black brick. The aroma of strong coffee and bitter chocolate emenates from the little building."
+    "You make your way across a barren field to a small, cozy cafe made of black brick. The aroma of strong coffee and bitter chocolate emenates from the little building."
 
     me "A coffee shop? Huh, maybe this place isn't so bad-"
 
     "A tired looking goth lady walks up to the counter in front of you."
 
     show marble neutral
+    with easeinright
 
     show hp 0:
         zoom 0.5
         xalign 0.05
         yalign 0.05
+    with easeinleft
     
     marble "...Hi."
 
@@ -227,12 +238,14 @@ label cafe_scene:
     
     marble "Get out."
 
+    menu:
+        "Go adventuring in the desert.":
+            jump desert_scene
+
     if gothHealth >= 3:
         jump clown_town
     if gothHealth <= 0:
         jump down_town
-    else:
-        jump scene_select
 
 
 label desert_scene:
@@ -240,14 +253,19 @@ label desert_scene:
     scene bg gundesert
     with fade
 
+    show gun neutral
+
     me "Add dialogue."
 
     show hp 0:
         zoom 0.5
         xalign 0.05
         yalign 0.05
+    with easeinleft
 
-    jump scene_select
+    menu:
+        "Enter the apartment.":
+            jump beef_scene
 
 label beef_scene:
     scene bg beefhouse
@@ -259,32 +277,44 @@ label beef_scene:
 
     beef "Oh... welcome, sonny, to my humble dwelling."
 
-    show beef hag_grab
+    beef @ grab "Here, let me get a little more comfortable..."
 
-    beef "Here, let me get a little more comfortable..."
-
-    show beef neutral
     show hp 0:
-            zoom 0.5
-            xalign 0.05
-            yalign 0.05
+        zoom 0.5
+        xalign 0.05
+        yalign 0.05
+    with easeinleft
 
-    beef "That's better."
+    beef -hag "That's better."
 
     me "Haha what if joke."
 
-    show beef neutral_boob
-    with hpunch
+    # show beef neutral_boob
+    # with hpunch
 
-    beef "AHAHAHAHAAA what a jester you are!"
+    beef boob @ laugh "AHAHAHAHAAA what a jester you are!"
+    beef "i am serious now"
 
-    jump scene_select
+    menu:
+        "Take a trip to the tropics.":
+            jump tropics_scene
 
 label tropics_scene:
     scene bg frogroom
     with fade
 
-    jump scene_select
+    show frogfrog neutral
+    with None
+
+    show hp 0:
+        zoom 0.5
+        xalign 0.05
+        yalign 0.05
+    with easeinleft
+
+    menu:
+        "Go to town.":
+            jump town_scene
 
 label town_scene:
     scene bg townsquare
@@ -298,6 +328,30 @@ label town_scene:
     slay "Meowdy."
 
     jump scene_select
+
+label judgement_scene:
+
+    scene bg spinner
+    with fade
+
+    judge "Welcome to your judgement!"
+
+    judge "Let's see where you're headed!"
+
+    $ judgement = renpy.random.randint(0, 1)
+
+    # if judgement == 0:
+    #     jump judgement_clown
+    # else:
+    #     jump judgement_down
+        
+    label judgement_clown:
+        scene spinner clown
+        
+    label judgement_down:
+        scene spinner down
+        
+    # "hehejhiuuiiiiiiiiiiiiiiiiiiii"
 
 label clown_town:
     scene bg clowntown
@@ -317,5 +371,10 @@ label down_town:
     play music "audio/bgm downtown.mp3"
 
     me "Damn."
+
+    menu:
+        extend ""
+        "Accept your fate.":
+            return
 
     return
