@@ -14,9 +14,9 @@ define marble = Character("Marble", color="#000000")
 define beef = Character("Beef")
 
 # Wizard health variables
-default skaterHealth = 3
-default gothHealth = 3
-default gunHealth = 3
+default skaterHealth = 0
+default gothHealth = 0
+default gunHealth = 0
 
 label scene_select:
     menu:
@@ -134,12 +134,7 @@ label skater_wiz:
     me "I'm {fast}[name], nice to meet you."
 
     skater_wizard "Well hey there, [name], and what an odd name that is. My name's Bo!{p=1.0}That's short for Skateboard Radical."
-
-    show hp 0:
-        zoom 0.5
-        xalign 0.05
-        yalign 0.05
-
+    
     bo "What brings you here?"
 
     jump scene_select
@@ -180,12 +175,12 @@ label goth_cafe:
 
             $ gothHealth += 1
 
-            if gothHealth == 2:
-                show hp 2
             if gothHealth == 1:
                 show hp 1
-            if gothHealth <= 0:
-                show hp 0
+            if gothHealth == 2:
+                show hp 2
+            if gothHealth == 3:
+                show hp 3
 
     menu:
         "Bad joke 2. (Replace this with dialogue.)":
@@ -196,12 +191,12 @@ label goth_cafe:
 
             $ gothHealth += 1
 
-            if gothHealth == 2:
-                show hp 2
             if gothHealth == 1:
                 show hp 1
-            if gothHealth <= 0:
-                show hp 0
+            if gothHealth == 2:
+                show hp 2
+            if gothHealth == 3:
+                show hp 3
 
     menu:
         "Bad joke 3. (Replace this with dialogue.)":
@@ -212,14 +207,14 @@ label goth_cafe:
 
             $ gothHealth += 1
 
-            if gothHealth == 2:
-                show hp 2
             if gothHealth == 1:
                 show hp 1
-            if gothHealth <= 0:
-                show hp 0
+            if gothHealth == 2:
+                show hp 2
+            if gothHealth == 3:
+                show hp 3
     
-    melon "Get out."
+    marble "Get out."
 
     jump scene_select
 
