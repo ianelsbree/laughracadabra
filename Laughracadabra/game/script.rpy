@@ -78,7 +78,7 @@ label start:
     "You step outside, and see a run-down skatepark nearby."
 
     menu:
-        "Head to the skatepark":
+        "Head to the skatepark.":
             jump skater_wiz
         
         "Fuck that. Let's go to the cafe.":
@@ -98,8 +98,9 @@ label skater_wiz:
     skater_wizard "What's groovy, man?{w=1.0} What's your name?"
 
     show hp 3:
-        xalign 0.0
-        yalign 0.0
+        zoom 0.5
+        xalign 0.05
+        yalign 0.05
 
     pause 2.0
 
@@ -121,8 +122,9 @@ label goth_cafe:
     "A tired looking goth lady walks up to the counter in front of you."
 
     show hp 3:
-        xalign 0.0
-        yalign 0.0
+        zoom 0.5
+        xalign 0.05
+        yalign 0.05
     
     melon "...hi."
 
@@ -192,8 +194,9 @@ label gun_wiz:
     me "Add dialogue."
 
     show hp 3:
-        xalign 0.0
-        yalign 0.0
+        zoom 0.5
+        xalign 0.05
+        yalign 0.05
     
     return
 
