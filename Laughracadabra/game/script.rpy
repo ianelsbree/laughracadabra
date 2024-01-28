@@ -16,9 +16,9 @@ define slip = Character("Slip", color="#1e2900", image="slip")
 define slay = Character("Slay", color="#61012d", image="slay")
 define gun = Character("Gun", color="#6b1414", image="gun")
 define judge = Character("", what_font="Jokerman-Regular.ttf", what_size=40)
-define shrimp = Character("The High Prawn Wizard", image="shrimp")
+define shrimp = Character("The High Prawn Wizard", color="#0000000", image="shrimp")
 define frog = Character("Frogbert", color="#3a703aff", image="frog")
-define bug = Character("Persinnamon", color="#7158dfff")
+define bug = Character("Persinnamon", color="#533991ff", image="bug")
 
 # Wizard health variables
 default skaterHealth = 0
