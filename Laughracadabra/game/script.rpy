@@ -5,10 +5,13 @@ define skateout = MoveTransition(6.0, leave=offscreenleft, enter_time_warp=_warp
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
-define me = Character("You")
+define name = "You"
+define me = Character("[name]")
 define narrator = Character(what_italic=True)
-define bo = Character("Bo")
+define skater_wizard = Character("Skater Wizard")
+define bo = Character("Bo Rad")
 define melon = Character("Melondy", color="#000000")
+
 
 # The game starts here.
 
@@ -24,39 +27,77 @@ label start:
 
     me "What? Where am I?"
 
-    "A sign reads, \"Welcome to wizard purgatory!\""
+    "A gift shop."
 
-    me "Wizard purgatory? Huh. Well, I am a wizard, and I did just die, so I guess that makes sense!"
+    me "Oh, the gift shop! Look at all these mugs! They've all got cool names on them."
 
-    me "What else does the sign say?"
+    "What does that sign say?"
 
-    "\"To escape wizard purgatory, you must best the NUMBER OF WIZARDS Slippery Sorcerers!\""
-
-    me "What the heck is a Slippery Sorcerer?"
-
-    me "I think I see something in the distance over there. It looks like... a skate park?"
+    "{size=+10}\"TAKE A MUG ON YOUR WAY OUT\"{/size}"
+    
+    me "They're all so good! Which one should I choose?"
 
     menu:
+        "Gorgonzola":
+            $ name = "Gorgonzola"
 
-        "Head towards the run down skate park":
+        "Carbon Tetrafluoride":
+            $ name = "Carbon Tetrafluoride"
+
+        "Sasquatch":
+            $ name = "Sasquatch"
+
+        "Tepid":
+            $ name = "Tepid"
+
+        "Quintessential":
+            $ name = "Quintessential"
+
+        "Milk Steak":
+            $ name = "Milk Steak"
+
+        "Canned Frosting":
+            $ name = "Canned Frosting"
+
+        "Blackberry like the phone":
+            $ name = "Blackberry like the phone"
+
+        "Mug":
+            $ name = "Mug"
+
+        "Fried Milk":
+            $ name = "Fried Milk"
+
+    "You pick up the mug with \"[name]\" inscribed on it."
+
+    "Another sign on the wall: {size=+5}\"SKATEPARK THATAWAY\"{/size} with an arrow pointing out the door."
+
+    "You step outside, and see a run-down skatepark nearby."
+
+    menu:
+        "Head to the skatepark":
             jump skater_wiz
-
 
 
 label skater_wiz:
 
     scene bg skatepark
-
-    "You make your way across the baren field of purgatory until you find yourself at an old skate park."
+    with fade
 
     "It looks like it hasn't been touched since the 90's. There's graffiti everywhere."
 
     show bo neutral
     with skatein
 
-    bo "What's groovy, man?{w} What's your name?"
+    skater_wizard "What's groovy, man?{w=1.0} What's your name?"
+
+    pause 2.0
 
     me "[name], nice to meet you."
+
+    skater_wizard "Well hey there, [name], and what an odd name that is. My name's Bo!{p=1.0}That's short for Skateboard Radical."
+
+    bo "What brings your here?"
 
     return
 
