@@ -18,7 +18,7 @@ define gun = Character("Gun", color="#6b1414", image="gun")
 define judge = Character("", what_font="Jokerman-Regular.ttf", what_size=40)
 define shrimp = Character("The High Prawn Wizard", image="shrimp")
 define frog = Character("Frogbert", color="#3a703aff", image="frog")
-define bug = Character("Persinnaon", color="#7158dfff")
+define bug = Character("Persinnamon", color="#7158dfff")
 
 # Wizard health variables
 default skaterHealth = 0
@@ -394,6 +394,8 @@ label desert_scene:
 
     scene bg gundesert
     with fade
+    
+    play music "audio/bgm gun.mp3"
 
     show gun neutral
 
