@@ -430,12 +430,19 @@ label tropics_scene:
     show frogfrog neutral
 
     menu:
-        "Bad joke.":
-            show frogfrog disgust
+        "How does a frog feel when he has a broken leg?":
+            frog "How?"
 
+            me "Unhoppy!"
+
+            show frogfrog disgust
             frog "Don't strain yourself."
 
-        "Good joke.":
+        "Why are frogs so happy?":
+            frog "Why?"
+
+            me "They eat whatever bugs them!"
+
             show frogfrog laugh
             $ frogHealth += 1
 
@@ -447,6 +454,65 @@ label tropics_scene:
         show hp 2
     if frogHealth == 3:
         show hp 3
+
+    show frogfrog neutral
+
+    menu:
+        "What do you call a fish with no eyes?":
+            frog "Don't say it."
+
+            me "Amblyopsidae! Get it?"
+            me "Because they are fish with no eyes! Literaly!"
+
+            show frogfrog laugh
+            frog "Ribbit, ribbit!"
+            $ frogHealth += 1
+        
+        "What do you call a fish with no eyes?":
+            show frogfrog neutral
+            frog "Don't say it."
+
+            me "Fsh."
+
+            show frogfrog disgust
+            frog "....."
+
+    if frogHealth == 1:
+        show hp 1
+    if frogHealth == 2:
+        show hp 2
+    if frogHealth == 3:
+        show hp 3
+    
+    show frogfrog neutral
+
+    menu:
+        "What do you call a frog that lies?":
+            frog "What?"
+            me "An am-fib-ian!"
+
+            show frogfrog laugh
+            frog "Ahahaha-ibbit-haha!"
+
+            $ frogHealth += 1
+
+        "What happens when two frogs collide?":
+            frog "What?"
+
+            me "They get tongue-tied."
+            
+            show frogfrog disgust
+            frog "That's inappropriate."
+    
+    if frogHealth <= 0:
+        frog "It's best that you leave."
+    if frogHealth == 1:
+        show hp 1
+    if frogHealth == 2:
+        show hp 2
+    if frogHealth == 3:
+        show hp 3
+        frog "No one has-ibbit made me -ribbit- laugh that much in a long time!"
 
     jump scene_select
 
