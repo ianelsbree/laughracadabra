@@ -18,6 +18,7 @@ define gun = Character("Gun", color="#6b1414", image="gun")
 define judge = Character("", what_font="Jokerman-Regular.ttf", what_size=40)
 define shrimp = Character("The High Prawn Wizard", image="shrimp")
 define frog = Character("Frogbert", color="#3a703aff", image="frog")
+define bug = Character("Persinnaon", color="#7158dfff")
 
 # Wizard health variables
 default skaterHealth = 0
@@ -413,7 +414,7 @@ label tropics_scene:
     show frogfrog neutral
 
     menu:
-        "What the fuck.":
+        "What the??":
             show frogfrog speak
             frog "Have you never seen excellence before?"
             me "My apologies. I didn't mean to offend."
@@ -640,8 +641,34 @@ label ocean_floor:
 
     show shrimp neutral
     shrimp "Perhaps we shall meet again, mere mortal. Now begone from my throne of the High Prawn Wizard!"
+    jump bug_scene
 
+label bug_scene:
+    scene bg bug
+    with fade
 
+    play music "audio/bgm bug.mp3"
+
+    show bug happy
+    bug "Hello! Welcome! Who are you? How are you? What brings you by? Sorry, I don't get vistors often."
+
+    show hp 0:
+            zoom 0.5
+            xalign 0.05
+            yalign 0.05
+
+    menu:
+        "Hello?":
+            show bug neutral
+            bug "Sorry, I didn't mean to be so excited."
+
+        "Hi! How are you?":
+            show bug laugh
+            bug "I'm well! And you?"
+            me "Good!"
+            me "Except for all this battling stuff."
+
+    jump town_scene
 
 label town_scene:
     
