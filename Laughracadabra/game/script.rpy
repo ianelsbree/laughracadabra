@@ -113,12 +113,12 @@ label skater_wiz:
     show bo neutral
     with skatein
 
-    skater_wizard "What's groovy, man?{w=1.0} What's your name?" (window_background="gui/boring_textbox.png")
-
     show hp 0:
         zoom 0.5
         xalign 0.05
         yalign 0.05
+
+    skater_wizard "What's groovy, man?{w=1.0} What's your name?" (window_background="gui/boring_textbox.png")
         
     skater_wizard "What's groovy, man?{w=1.0} What's your name?"
 
