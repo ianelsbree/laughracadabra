@@ -533,6 +533,7 @@ label desert_scene:
             jump beef_scene
 
 label beef_scene:
+    define boob_flag = False
     
     scene bg beefhouse
     with fade
@@ -545,15 +546,18 @@ label beef_scene:
 
     beef "Oh... welcome, sonny, to my humble dwelling."
 
-    beef @ grab "Here, let me get a little more comfortable..."
+    beef grab "Here, let me get a little more comfortable..."
 
+    show beef neutral
+    with hpunch
+    
     show hp 0:
         zoom 0.5
         xalign 0.05
         yalign 0.05
     with easeinleft
 
-    beef -hag "That's better."
+    beef "That's better."
 
     beef "So go on. Make me laugh!"
 
@@ -565,6 +569,7 @@ label beef_scene:
 
             me "One's a crusty bus station, and the other's a busty crustacean!"
 
+            $ boob_flag = True
             beef boob @ laugh "Aha! That's a good one!"
             play sound "audio/sfx clownhonk.mp3"
 
@@ -594,7 +599,8 @@ label beef_scene:
             beef "Yes! Tell me."
 
             me "Ah never mind, they all stink!"
-
+            
+            $ boob_flag = True
             beef boob @ laugh "Ha! I like that. You're real funny."
             play sound "audio/sfx clownhonk.mp3"
 
@@ -613,7 +619,10 @@ label beef_scene:
 
             me "You're pointless!"
 
-            beef @ irritated "Dude, shapes? Really? Not cool."
+            if boob_flag:
+                beef boob @ irritated "Dude, shapes? Really? Not cool."
+            else:
+                beef @ irritated "Dude, shapes? Really? Not cool."
 
     beef "Alright, last try. Give me everything you've got!"
 
@@ -633,6 +642,8 @@ label beef_scene:
 
             me "Ground beef!"
 
+            $ boob_flag = True
+
             beef boob @ laugh "Ground beef! Because he's on the ground! Ahahaha."
             play sound "audio/sfx clownhonk.mp3"
 
@@ -645,7 +656,11 @@ label beef_scene:
             if beefHealth == 3:
                 show hp 3
 
-    beef "Now get outta here, kid."
+    if boob_flag:
+        beef boob "Now get outta here, kid."
+    else:
+        beef "Now get outta here, kid."
+
 
     menu:
         "Take a trip to the tropics.":
