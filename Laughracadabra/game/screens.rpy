@@ -286,7 +286,10 @@ style quick_button_text:
 ## to other menus, and to start the game.
 
 screen navigation():
-
+    if main_menu:        
+        imagebutton auto ("gui/logo_nose_%s.png") xpos 0.68385 ypos 0.1584 action Play("sound", config.sample_sound)
+        imagebutton auto ("gui/menu_nose_%s.png") xpos 0.539 ypos 0.467 action Play("sound", config.sample_sound)
+    
     vbox:
         style_prefix "navigation"
 
@@ -1179,6 +1182,7 @@ style confirm_button:
 
 style confirm_button_text:
     properties gui.button_text_properties("confirm_button")
+
 
 
 ## Skip indicator screen #######################################################
