@@ -1061,12 +1061,41 @@ label judgement_scene:
     scene bg spinner
     with fade
 
-    judge "Welcome to your judgement!"
+    judge "Welcome! You may take one companion with you,{w=0.5} and you can choose from those whom you've made laugh during your adventures."
 
-    judge "Let's see where you're headed!"
+    menu:
+        judge "Who will you choose?"
+
+        "Bo Rad" if skaterHealth == 3:
+            show skater thumb
+
+        "Marble" if gothHealth == 3:
+            show marble 
+
+        "Gun" if gunHealth == 3:
+            show gun silly
+
+        "Frogbert" if frogHealth == 3:
+            show frog laugh
+
+        "Beef" if beefHealth == 3:
+            show beef laugh boob
+            
+        "Slip & Slay" if devilHealth == 3:
+            show slip laugh
+            show slay laugh
+
+        "The High Prawn Wizard" if shrimpHealth == 3:
+            show shrimp laugh
+
+        "Persinnamon" if bugHealth == 3:
+            show bug blush
+
+    judge "Now, to your judgement!"
+
+    judge "Let's see where you two are headed!"
 
     $ judgement = renpy.random.randint(0, 1)
-    # $ judgement = 1
 
     if judgement == 0:
         jump judgement_clown
