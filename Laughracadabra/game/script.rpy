@@ -30,6 +30,9 @@ label scene_select:
 
         "The Desert":
             jump gun_wiz
+        
+        "The Tropics":
+            jump frog_wiz
 
         "Beef's House":
             jump beef_house
@@ -117,7 +120,14 @@ label skater_wiz:
     show bo neutral
     with skatein
 
+    show hp 0:
+        zoom 0.5
+        xalign 0.05
+        yalign 0.05
+
     skater_wizard "What's groovy, man?{w=1.0} What's your name?" (window_background="gui/boring_textbox.png")
+        
+    skater_wizard "What's groovy, man?{w=1.0} What's your name?"
 
     me "I'm {w=1.5}{nw}" (name="You", window_background="gui/boring_textbox.png")
 
@@ -210,19 +220,15 @@ label goth_cafe:
                 show hp 1
             if gothHealth <= 0:
                 show hp 0
-
-    marble "Get out."
-    if gothHealth >= 3:
-        jump clown_town
-    else:
-        jump gun_wiz
+    
+    melon "Get out."
 
     jump scene_select
 
 
 label gun_wiz:
 
-    scene bg desert
+    scene bg gundesert
     with fade
 
     me "Add dialogue."
@@ -262,6 +268,9 @@ label beef_house:
     with hpunch
 
     beef "AHAHAHAHAAA what a jester you are!"
+label frog_wiz:
+    scene bg frogroom
+    with fade
 
     jump scene_select
 
@@ -278,3 +287,9 @@ label clown_town:
 
     return
 
+label down_town:
+    scene bg downtown
+
+    me "Damn."
+
+    return
