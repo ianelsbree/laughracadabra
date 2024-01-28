@@ -92,14 +92,17 @@ label start:
 
     "Another sign on the wall: {size=+5}\"SKATEPARK THATAWAY\"{/size} with an arrow pointing out the door." (window_background="gui/boring_textbox.png")
 
-    "You step outside, and see a run-down skatepark nearby." (window_background="gui/boring_textbox.png")
+    "You step outside, and see a run-down skatepark nearby.{nw}" (window_background="gui/boring_textbox.png")
 
     menu:
+
+        extend ""
+        
         "Head to the skatepark.":
             jump skater_wiz
         
-        "Fuck that. Let's go to the cafe.":
-            jump goth_cafe
+        # "Fuck that. Let's go to the cafe.":
+        #     jump goth_cafe
 
 
 label skater_wiz:
@@ -127,7 +130,7 @@ label skater_wiz:
 
     skater_wizard "Well hey there, [name], and what an odd name that is. My name's Bo!{p=1.0}That's short for Skateboard Radical."
 
-    bo "What brings your here?"
+    bo "What brings you here?"
 
     jump scene_select
 
