@@ -16,9 +16,9 @@ define slip = Character("Slip", color="#1e2900", image="slip")
 define slay = Character("Slay", color="#61012d", image="slay")
 define gun = Character("Gun", color="#6b1414", image="gun")
 define judge = Character("", what_font="Jokerman-Regular.ttf", what_size=40)
-define shrimp = Character("The High Prawn Wizard", image="shrimp")
+define shrimp = Character("The High Prawn Wizard", color="#0000000", image="shrimp")
 define frog = Character("Frogbert", color="#3a703aff", image="frog")
-define bug = Character("Persinnamon", color="#7158dfff")
+define bug = Character("Persinnamon", color="#533991ff", image="bug")
 
 # Wizard health variables
 default skaterHealth = 0
@@ -339,14 +339,25 @@ label cafe_scene:
 
     menu:
         extend ""
-        "Bad joke. (Replace this with dialogue.)":
-            marble "Zzz."
+        "Are you French?":
+
+            show marble_confused
+            marble "...No, why?"
+            me "Because Eifell for you!"
+
+            show marble_disturbed
+
+            marble "Don't talk to me like that... You're my customer."
+
+            marble "I'd rather jump off a cliff."
 
         "What do you call it when your coffee gets stolen?":
 
+            show marble_confused
             marble "...{p}What?"
 
             me "A mugging!"
+            show marble_pleased
             play sound "audio/sfx clownhonk.mp3"
 
             $ gothHealth += 1
@@ -362,14 +373,23 @@ label cafe_scene:
 
     menu:
         extend ""
-        "Bad joke 2. (Replace this with dialogue.)":
-            marble "You're not funny."
+        "What do you call a thief who steals energy drinks?":
+
+            show marble_confused
+            marble "I don't care. Coffee is way better."
+
+            me "A power lifter!"
+
+            show marble_disturbed
+            marble "Okay. Whatever."
 
         "What do you call a coffee shop that you're sure you've been to before?":
 
+            show marble_confused
             marble "Hmm?"
 
             me "Deja-brew!"
+            show marble_amused
             play sound "audio/sfx clownhonk.mp3"
 
             $ gothHealth += 1
@@ -385,14 +405,24 @@ label cafe_scene:
 
     menu:
         extend ""
-        "Bad joke 3. (Replace this with dialogue.)":
-            marble "You suck."
+        "What would a barista do in a shopping mall?":
+            show marble_confused
+            marble "Um, what?"
+
+            me "Make a coffee!"
+
+            show marble_upset
+
+            marble "That sounds AI generated. I bet you looked that up on the internet. You're the worst."
 
         "What did the barista's best friend tell them?":
 
+            show marble_confused
             marble "What?"
 
             me "You mocha me very happy!"
+
+            show marble_pleased
             play sound "audio/sfx clownhonk.mp3"
 
             $ gothHealth += 1
@@ -406,6 +436,7 @@ label cafe_scene:
 
             marble "Ha! You mocha me happy, [name]."
     
+    show marble neutral
     marble "Have a nice day. {p}Get out."
 
     menu:
