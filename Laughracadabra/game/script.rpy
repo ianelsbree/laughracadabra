@@ -36,25 +36,25 @@ label start:
 
     scene bg dark
 
-    "Dark. Everything is dark."
+    "Dark. Everything is dark." (window_background="gui/boring_textbox.png")
 
-    "Then, a light."
+    "Then, a light." (window_background="gui/boring_textbox.png")
 
     scene bg light with dissolve
 
-    me "What? Where am I?"
+    me "What? Where am I?"  (window_background="gui/boring_textbox.png")
 
     scene bg giftshop with dissolve
 
-    "A gift shop."
+    "A gift shop." (window_background="gui/boring_textbox.png")
 
-    me "Oh, the gift shop! Look at all these mugs! They've all got cool names on them."
+    me "Oh, the gift shop! Look at all these mugs! They've all got cool names on them." (window_background="gui/boring_textbox.png")
 
-    "What does that sign say?"
+    "What does that sign say?" (window_background="gui/boring_textbox.png")
 
-    "{size=+10}\"TAKE A MUG ON YOUR WAY OUT\"{/size}"
+    "{size=+10}\"TAKE A MUG ON YOUR WAY OUT\"{/size}" (window_background="gui/boring_textbox.png")
 
-    me "They're all so good! Which one should I choose?"
+    me "They're all so good! Which one should I choose?" (window_background="gui/boring_textbox.png")
 
     menu:
 
@@ -88,11 +88,11 @@ label start:
         "Fried Milk":
             $ name = "Fried Milk"
 
-    "You pick up the mug with \"[name]\" inscribed on it."
+    "You pick up the mug with \"[name]\" inscribed on it." (window_background="gui/boring_textbox.png")
 
-    "Another sign on the wall: {size=+5}\"SKATEPARK THATAWAY\"{/size} with an arrow pointing out the door."
+    "Another sign on the wall: {size=+5}\"SKATEPARK THATAWAY\"{/size} with an arrow pointing out the door." (window_background="gui/boring_textbox.png")
 
-    "You step outside, and see a run-down skatepark nearby."
+    "You step outside, and see a run-down skatepark nearby." (window_background="gui/boring_textbox.png")
 
     menu:
         "Head to the skatepark.":
@@ -107,21 +107,23 @@ label skater_wiz:
     scene bg skatepark
     with fade
 
-    "It looks like it hasn't been touched since the 90's. There's graffiti everywhere."
+    "It looks like it hasn't been touched since the 90's. There's graffiti everywhere." (window_background="gui/boring_textbox.png")
 
     show bo neutral
     with skatein
 
-    skater_wizard "What's groovy, man?{w=1.0} What's your name?"
+    skater_wizard "What's groovy, man?{w=1.0} What's your name?" (window_background="gui/boring_textbox.png")
 
     show hp 3:
         zoom 0.5
         xalign 0.05
         yalign 0.05
 
-    pause 2.0
+    me "I'm {w=1.5}{nw}" (name="You", window_background="gui/boring_textbox.png")
 
-    me "[name], nice to meet you."
+    with vpunch
+
+    me "I'm {fast}[name], nice to meet you."
 
     skater_wizard "Well hey there, [name], and what an odd name that is. My name's Bo!{p=1.0}That's short for Skateboard Radical."
 
@@ -156,7 +158,7 @@ label goth_cafe:
     melon "...What can I get you?"
 
     menu:
-        melon "...What can I get you?{fast}"
+        extend ""
         "Bad choice. Take damage. (Replace this with dialogue.)":
             $ gothHealth -= 1
 
@@ -237,6 +239,7 @@ label gun_wiz:
 
 label clown_town:
     scene bg clowntown
+    play music "audio/bgm clowntown.mp3"
     
     me "Damn."
 
