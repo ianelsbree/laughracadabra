@@ -30,8 +30,8 @@ default bugHealth = 0
 default shrimpHealth = 0
 
 define judgement = 0
-image spinner clown = Movie(play="video0.mp4", keep_last_frame=True)
-image spinner down = Movie(play="video0.mp4", keep_last_frame=True)
+image spinner_clown = Movie(play="spin_for_clowntown.mpeg", loop=False, keep_last_frame=True)
+image spinner_down = Movie(play="spin_for_downtown.mpeg", loop=False, keep_last_frame=True)
 
 label scene_select:
     menu:
@@ -746,19 +746,26 @@ label judgement_scene:
     judge "Let's see where you're headed!"
 
     $ judgement = renpy.random.randint(0, 1)
+    # $ judgement = 1
 
-    # if judgement == 0:
-    #     jump judgement_clown
-    # else:
-    #     jump judgement_down
+    if judgement == 0:
+        jump judgement_clown
+    else:
+        jump judgement_down
         
     label judgement_clown:
-        scene spinner clown
+        $ renpy.movie_cutscene("spin_for_clowntown.mpeg")
+        play sound "audio/bgm harpup.mp3"
+        scene landed_on_clowntown
+        judge "Looks like you're headed to Clowntown!"
+        jump clown_town
         
     label judgement_down:
-        scene spinner down
-        
-    # "hehejhiuuiiiiiiiiiiiiiiiiiiii"
+        $ renpy.movie_cutscene("spin_for_downtown.mpeg")
+        play sound "audio/bgm harpdown.mp3"
+        scene landed_on_downtown
+        judge "Looks like you're headed Downtown!"
+        jump down_town
 
 label clown_town:
     
