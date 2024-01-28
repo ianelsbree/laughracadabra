@@ -39,8 +39,9 @@ label scene_select:
 
 # The game starts here.
 label start:
-
     scene bg dark
+    
+    play music "audio/bgm intro.mp3"
 
     "Dark. Everything is dark." (window_background="gui/boring_textbox.png")
 
