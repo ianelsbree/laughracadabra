@@ -142,12 +142,15 @@ label goth_cafe:
     menu:
         "Bad choice. Take damage. (Replace this with dialogue.)":
             $ gothHealth -= 1
+
             if gothHealth == 2:
                 show hp 2
             if gothHealth == 1:
                 show hp 1
             if gothHealth <= 0:
                 show hp 0
+
+            play sound "audio/sfx placeholder horn.mp3"
 
             "Ouch."
 
@@ -157,6 +160,7 @@ label goth_cafe:
     menu:
         "Bad choice 2. Take damage. (Replace this with dialogue.)":
             $ gothHealth -= 1
+
             if gothHealth == 2:
                 show hp 2
             if gothHealth == 1:
@@ -164,6 +168,8 @@ label goth_cafe:
             if gothHealth <= 0:
                 show hp 0
             
+            play sound "audio/sfx placeholder horn.mp3"
+
             "Ouch."
 
         "Mid choice. No damage. (Replace this with dialogue.)":
@@ -172,12 +178,16 @@ label goth_cafe:
     menu:
         "Bad choice 3. Take damage. (Replace this with dialogue.)":
             $ gothHealth -= 1
+
             if gothHealth == 2:
                 show hp 2
             if gothHealth == 1:
                 show hp 1
             if gothHealth <= 0:
                 show hp 0
+            
+            play sound "audio/sfx placeholder horn.mp3"
+
 
             "Ouch."
 
