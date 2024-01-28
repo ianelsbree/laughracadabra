@@ -286,9 +286,6 @@ style quick_button_text:
 ## to other menus, and to start the game.
 
 screen navigation():
-    if main_menu:        
-        imagebutton auto ("gui/logo_nose_%s.png") xpos 0.68385 ypos 0.1584 action Play("sound", config.sample_sound)
-        imagebutton auto ("gui/menu_nose_%s.png") xpos 0.539 ypos 0.467 action Play("sound", config.sample_sound)
     
     vbox:
         style_prefix "navigation"
@@ -357,6 +354,9 @@ screen main_menu():
     tag menu
 
     add gui.main_menu_background
+
+    imagebutton auto ("gui/logo_nose_%s.png") xpos 0.68385 ypos 0.1584 action Play("sound", config.sample_sound)
+    imagebutton auto ("gui/menu_nose_%s.png") xpos 0.539 ypos 0.467 action Play("sound", config.sample_sound)
 
     ## This empty frame darkens the main menu.
     frame:
