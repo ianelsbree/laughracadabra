@@ -26,9 +26,11 @@ label start:
 
     "Then, a light."
 
-    scene bg light
+    scene bg light with dissolve
 
     me "What? Where am I?"
+
+    scene bg giftshop with dissolve
 
     "A gift shop."
 
@@ -41,6 +43,7 @@ label start:
     me "They're all so good! Which one should I choose?"
 
     menu:
+
         "Gorgonzola":
             $ name = "Gorgonzola"
 
