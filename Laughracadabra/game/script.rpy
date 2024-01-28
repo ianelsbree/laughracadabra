@@ -291,7 +291,7 @@ label beef_scene:
 
             me "One's a crusty bus station, and the other's a busty crustacean!"
 
-            show beef laugh_boob
+            show beef boob @ laugh
             beef "Aha! That's a good one!"
             play sound "audio/sfx clownhonk.mp3"
 
@@ -323,7 +323,7 @@ label beef_scene:
 
             me "Ah never mind, they all stink!"
 
-            show beef laugh_boob
+            show beef boob @ laugh
             beef "Ha! I like that. You're real funny."
             play sound "audio/sfx clownhonk.mp3"
 
@@ -345,7 +345,7 @@ label beef_scene:
             show beef irritated_boob
             beef "Dude, shapes? Really? Not cool."
 
-    show beef neutral_boob
+    show beef neutral
     beef "Alright, last try. Give me everything you've got!"
 
     menu:
@@ -365,7 +365,7 @@ label beef_scene:
 
             me "Ground beef!"
 
-            show beef laugh_boob
+            show beef boob @ laugh
             beef "Ground beef! Because he's on the ground! Ahahaha."
             play sound "audio/sfx clownhonk.mp3"
 
