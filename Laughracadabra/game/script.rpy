@@ -17,6 +17,11 @@ define beef = Character("Beef")
 default skaterHealth = 0
 default gothHealth = 0
 default gunHealth = 0
+default frogHeath = 0
+default beefHealth = 0
+default devilHealth = 0
+default bugHealth = 0
+default shrimpHealth = 0
 
 label scene_select:
     menu:
