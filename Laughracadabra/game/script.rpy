@@ -117,6 +117,8 @@ label skater_wiz:
 
 label goth_cafe:
 
+    # scene bg cafe
+
     "You make your way across a baren field to a small, cozy cafe made of black brick. The aroma of strong coffee and bitter chocolate emenates from the little building."
 
     me "A coffee shop in purgatory? Huh, maybe this place isn't so bad--"
