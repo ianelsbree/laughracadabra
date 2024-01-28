@@ -18,30 +18,44 @@ default skaterHealth = 3
 default gothHealth = 3
 default gunHealth = 3
 
+label scene_select:
+    menu:
+        "Where should I go next?"
+
+        "The Skatepark":
+            jump skater_wiz
+
+        "The Coffee Shop":
+            jump goth_cafe
+        
+        "The Desert":
+            jump gun_wiz
+
+
 # The game starts here.
 label start:
 
     scene bg dark
 
-    "Dark. Everything is dark."
+    "Dark. Everything is dark." (window_background="gui/boring_textbox.png")
 
-    "Then, a light."
+    "Then, a light." (window_background="gui/boring_textbox.png")
 
     scene bg light with dissolve
 
-    me "What? Where am I?"
+    me "What? Where am I?"  (window_background="gui/boring_textbox.png")
 
     scene bg giftshop with dissolve
 
-    "A gift shop."
+    "A gift shop." (window_background="gui/boring_textbox.png")
 
-    me "Oh, the gift shop! Look at all these mugs! They've all got cool names on them."
+    me "Oh, the gift shop! Look at all these mugs! They've all got cool names on them." (window_background="gui/boring_textbox.png")
 
-    "What does that sign say?"
+    "What does that sign say?" (window_background="gui/boring_textbox.png")
 
-    "{size=+10}\"TAKE A MUG ON YOUR WAY OUT\"{/size}"
-    
-    me "They're all so good! Which one should I choose?"
+    "{size=+10}\"TAKE A MUG ON YOUR WAY OUT\"{/size}" (window_background="gui/boring_textbox.png")
+
+    me "They're all so good! Which one should I choose?" (window_background="gui/boring_textbox.png")
 
     menu:
 
@@ -75,11 +89,11 @@ label start:
         "Fried Milk":
             $ name = "Fried Milk"
 
-    "You pick up the mug with \"[name]\" inscribed on it."
+    "You pick up the mug with \"[name]\" inscribed on it." (window_background="gui/boring_textbox.png")
 
-    "Another sign on the wall: {size=+5}\"SKATEPARK THATAWAY\"{/size} with an arrow pointing out the door."
+    "Another sign on the wall: {size=+5}\"SKATEPARK THATAWAY\"{/size} with an arrow pointing out the door." (window_background="gui/boring_textbox.png")
 
-    "You step outside, and see a run-down skatepark nearby."
+    "You step outside, and see a run-down skatepark nearby." (window_background="gui/boring_textbox.png")
 
     menu:
         "Head to the skatepark.":
@@ -94,10 +108,12 @@ label skater_wiz:
     scene bg skatepark
     with fade
 
-    "It looks like it hasn't been touched since the 90's. There's graffiti everywhere."
+    "It looks like it hasn't been touched since the 90's. There's graffiti everywhere." (window_background="gui/boring_textbox.png")
 
     show bo neutral
     with skatein
+
+    skater_wizard "What's groovy, man?{w=1.0} What's your name?" (window_background="gui/boring_textbox.png")
 
     show hp 0:
         zoom 0.5
@@ -106,41 +122,47 @@ label skater_wiz:
         
     skater_wizard "What's groovy, man?{w=1.0} What's your name?"
 
-    pause 2.0
+    me "I'm {w=1.5}{nw}" (name="You", window_background="gui/boring_textbox.png")
 
-    me "[name], nice to meet you."
+    with vpunch
+
+    me "I'm {fast}[name], nice to meet you."
 
     skater_wizard "Well hey there, [name], and what an odd name that is. My name's Bo!{p=1.0}That's short for Skateboard Radical."
 
     bo "What brings your here?"
 
-    return
+    jump scene_select
 
 
 label goth_cafe:
 
-    # scene bg cafe
+    scene bg cafe
+    with fade
 
     "You make your way across a baren field to a small, cozy cafe made of black brick. The aroma of strong coffee and bitter chocolate emenates from the little building."
 
-    me "A coffee shop in purgatory? Huh, maybe this place isn't so bad--"
+    me "A coffee shop? Huh, maybe this place isn't so bad-"
 
     "A tired looking goth lady walks up to the counter in front of you."
+
+    show melon neutral
 
     show hp 0:
         zoom 0.5
         xalign 0.05
         yalign 0.05
     
-    melon "...hi."
+    melon "...Hi."
 
     melon "..."
 
-    melon "......."
+    melon "......"
 
     melon "...What can I get you?"
 
     menu:
+        extend ""
         "Bad joke. (Replace this with dialogue.)":
             melon "Zzz."
 
@@ -194,11 +216,13 @@ label goth_cafe:
     else:
         jump gun_wiz
 
-    return
+    jump scene_select
 
 
 label gun_wiz:
+
     scene bg desert
+    with fade
 
     me "Add dialogue."
 
@@ -220,12 +244,14 @@ label beef_house:
         xalign 0.05
         yalign 0.05
     
-    return
+    jump scene_select
 
 
 label clown_town:
     scene bg clowntown
+    play music "audio/bgm clowntown.mp3"
     
     me "Damn."
 
     return
+
