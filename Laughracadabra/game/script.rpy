@@ -23,7 +23,7 @@ define frog = Character("Frogbert", color="#3a703aff", image="frog")
 default skaterHealth = 0
 default gothHealth = 0
 default gunHealth = 0
-default frogHeath = 0
+default frogHealth = 0
 default beefHealth = 0
 default devilHealth = 0
 default bugHealth = 0
@@ -532,8 +532,7 @@ label tropics_scene:
     scene bg frogroom
     with fade
 
-    show frogfrog neutral
-    with None
+    play music "audio/bgm tropics.mp3"
 
     show hp 0:
         zoom 0.5
@@ -543,10 +542,13 @@ label tropics_scene:
     show frogfrog speak
     frog "Ribbit."
 
+    show frogfrog neutral
+
     menu:
         "What the fuck.":
             show frogfrog speak
             frog "Have you never seen excellence before?"
+            me "My apologies. I didn't mean to offend."
         
         "Oh, I love frogs!":
             show frogfrog laugh
@@ -555,6 +557,28 @@ label tropics_scene:
         "Kiss the frog.":
             show frogfrog disgust
             frog "Stay away from me."
+            me "Shut it and listen to this."
+
+    show frogfrog neutral
+
+    menu:
+        "Bad joke.":
+            show frogfrog disgust
+
+            frog "Don't strain yourself."
+
+        "Good joke.":
+            show frogfrog laugh
+            $ frogHealth += 1
+
+            frog "Ribbit, ribbit! I'll have to tell my colleagues at the lab that one."
+
+    if frogHealth == 1:
+        show hp 1
+    if frogHealth == 2:
+        show hp 2
+    if frogHealth == 3:
+        show hp 3
 
     jump scene_select
 
