@@ -11,6 +11,7 @@ define narrator = Character(what_italic=True)
 define skater_wizard = Character("Skater Wizard")
 define bo = Character("Bo Rad")
 define melon = Character("Melondy", color="#000000")
+define beef = Character("Beef")
 
 # Wizard health variables
 default skaterHealth = 3
@@ -98,12 +99,12 @@ label skater_wiz:
     show bo neutral
     with skatein
 
-    skater_wizard "What's groovy, man?{w=1.0} What's your name?"
-
-    show hp 3:
+    show hp 0:
         zoom 0.5
         xalign 0.05
         yalign 0.05
+        
+    skater_wizard "What's groovy, man?{w=1.0} What's your name?"
 
     pause 2.0
 
@@ -126,7 +127,7 @@ label goth_cafe:
 
     "A tired looking goth lady walks up to the counter in front of you."
 
-    show hp 3:
+    show hp 0:
         zoom 0.5
         xalign 0.05
         yalign 0.05
@@ -140,8 +141,13 @@ label goth_cafe:
     melon "...What can I get you?"
 
     menu:
-        "Bad choice. Take damage. (Replace this with dialogue.)":
-            $ gothHealth -= 1
+        "Bad joke. (Replace this with dialogue.)":
+            melon "Zzz."
+
+        "Good joke. Made her laugh. (Replace this with dialogue.)":
+            play sound "audio/sfx clownhonk.mp3"
+
+            $ gothHealth += 1
 
             if gothHealth == 2:
                 show hp 2
@@ -150,16 +156,14 @@ label goth_cafe:
             if gothHealth <= 0:
                 show hp 0
 
-            play sound "audio/sfx clownhonk.mp3"
-
-            "Ouch."
-
-        "Mid choice. No damage. (Replace this with dialogue.)":
-            "Boring."
-        
     menu:
-        "Bad choice 2. Take damage. (Replace this with dialogue.)":
-            $ gothHealth -= 1
+        "Bad joke 2. (Replace this with dialogue.)":
+            melon "You're not funny."
+
+        "Good joke. Made her laugh. (Replace this with dialogue.)":
+            play sound "audio/sfx clownhonk.mp3"
+
+            $ gothHealth += 1
 
             if gothHealth == 2:
                 show hp 2
@@ -167,17 +171,15 @@ label goth_cafe:
                 show hp 1
             if gothHealth <= 0:
                 show hp 0
-            
-            play sound "audio/sfx clownhonk.mp3"
-
-            "Ouch."
-
-        "Mid choice. No damage. (Replace this with dialogue.)":
-            "Zzz."
     
     menu:
-        "Bad choice 3. Take damage. (Replace this with dialogue.)":
-            $ gothHealth -= 1
+        "Bad joke 3. (Replace this with dialogue.)":
+            melon "You suck."
+
+        "Good joke. Made her laugh. (Replace this with dialogue.)":
+            play sound "audio/sfx clownhonk.mp3"
+
+            $ gothHealth += 1
 
             if gothHealth == 2:
                 show hp 2
@@ -185,17 +187,9 @@ label goth_cafe:
                 show hp 1
             if gothHealth <= 0:
                 show hp 0
-            
-            play sound "audio/sfx clownhonk.mp3"
-
-
-            "Ouch."
-
-        "Mid choice. No damage. (Replace this with dialogue.)":
-            "..."
     
     melon "Get out."
-    if gothHealth <= 0:
+    if gothHealth >= 3:
         jump clown_town
     else:
         jump gun_wiz
@@ -208,7 +202,20 @@ label gun_wiz:
 
     me "Add dialogue."
 
-    show hp 3:
+    show hp 0:
+        zoom 0.5
+        xalign 0.05
+        yalign 0.05
+    
+    return
+
+label beef_house:
+    scene bg beefhouse
+    with fade
+
+    beef "Words go here."
+
+    show hp 0:
         zoom 0.5
         xalign 0.05
         yalign 0.05
