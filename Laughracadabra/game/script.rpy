@@ -84,7 +84,7 @@ label start:
         "Head to the skatepark":
             jump skater_wiz
         
-        "Fuck that. Let's go to the cafe":
+        "Fuck that. Let's go to the cafe.":
             jump goth_cafe
 
 
@@ -99,6 +99,10 @@ label skater_wiz:
     with skatein
 
     skater_wizard "What's groovy, man?{w=1.0} What's your name?"
+
+    show hp 3:
+        xalign 0.0
+        yalign 0.0
 
     pause 2.0
 
@@ -119,6 +123,10 @@ label goth_cafe:
 
     "A tired looking goth lady walks up to the counter in front of you."
 
+    show hp 3:
+        xalign 0.0
+        yalign 0.0
+    
     melon "...hi."
 
     melon "..."
@@ -130,22 +138,72 @@ label goth_cafe:
     menu:
         "Bad choice. Take damage. (Replace this with dialogue.)":
             $ gothHealth -= 1
-            
+            if gothHealth == 2:
+                show hp 2
+            if gothHealth == 1:
+                show hp 1
+            if gothHealth <= 0:
+                show hp 0
+
             "Ouch."
 
         "Mid choice. No damage. (Replace this with dialogue.)":
             "Boring."
         
+    menu:
+        "Bad choice 2. Take damage. (Replace this with dialogue.)":
+            $ gothHealth -= 1
+            if gothHealth == 2:
+                show hp 2
+            if gothHealth == 1:
+                show hp 1
+            if gothHealth <= 0:
+                show hp 0
+            
+            "Ouch."
+
+        "Mid choice. No damage. (Replace this with dialogue.)":
+            "Zzz."
+    
+    menu:
+        "Bad choice 3. Take damage. (Replace this with dialogue.)":
+            $ gothHealth -= 1
+            if gothHealth == 2:
+                show hp 2
+            if gothHealth == 1:
+                show hp 1
+            if gothHealth <= 0:
+                show hp 0
+
+            "Ouch."
+
+        "Mid choice. No damage. (Replace this with dialogue.)":
+            "..."
+    
+    melon "Get out."
+    if gothHealth <= 0:
+        jump clown_town
+    else:
+        jump gun_wiz
+
     return
 
 
 label gun_wiz:
     scene bg desert
 
+    me "Add dialogue."
+
+    show hp 3:
+        xalign 0.0
+        yalign 0.0
+    
     return
 
 
 label clown_town:
-    scene bg clown_town
+    scene bg clowntown
+    
+    me "Damn."
 
     return
