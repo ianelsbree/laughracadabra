@@ -10,7 +10,7 @@ define me = Character("[name]")
 define narrator = Character(what_italic=True)
 define skater_wizard = Character("Skater Wizard")
 define bo = Character("Bo Rad")
-define melon = Character("Melondy", color="#000000")
+define marble = Character("Marble", color="#000000")
 define beef = Character("Beef")
 
 # Wizard health variables
@@ -27,10 +27,12 @@ label scene_select:
 
         "The Coffee Shop":
             jump goth_cafe
-        
+
         "The Desert":
             jump gun_wiz
 
+        "Beef's House":
+            jump beef_house
 
 # The game starts here.
 label start:
@@ -98,13 +100,12 @@ label start:
     menu:
 
         extend ""
-        
+
         "Head to the skatepark.":
             jump skater_wiz
-        
+
         # "Fuck that. Let's go to the cafe.":
         #     jump goth_cafe
-
 
 label skater_wiz:
 
@@ -118,13 +119,6 @@ label skater_wiz:
 
     skater_wizard "What's groovy, man?{w=1.0} What's your name?" (window_background="gui/boring_textbox.png")
 
-    show hp 0:
-        zoom 0.5
-        xalign 0.05
-        yalign 0.05
-        
-    skater_wizard "What's groovy, man?{w=1.0} What's your name?"
-
     me "I'm {w=1.5}{nw}" (name="You", window_background="gui/boring_textbox.png")
 
     with vpunch
@@ -133,10 +127,14 @@ label skater_wiz:
 
     skater_wizard "Well hey there, [name], and what an odd name that is. My name's Bo!{p=1.0}That's short for Skateboard Radical."
 
+    show hp 0:
+        zoom 0.5
+        xalign 0.05
+        yalign 0.05
+
     bo "What brings you here?"
 
     jump scene_select
-
 
 label goth_cafe:
 
@@ -149,25 +147,25 @@ label goth_cafe:
 
     "A tired looking goth lady walks up to the counter in front of you."
 
-    show melon neutral
+    show marble neutral
 
     show hp 0:
         zoom 0.5
         xalign 0.05
         yalign 0.05
     
-    melon "...Hi."
+    marble "...Hi."
 
-    melon "..."
+    marble "..."
 
-    melon "......"
+    marble "......"
 
-    melon "...What can I get you?"
+    marble "...What can I get you?"
 
     menu:
         extend ""
         "Bad joke. (Replace this with dialogue.)":
-            melon "Zzz."
+            marble "Zzz."
 
         "Good joke. Made her laugh. (Replace this with dialogue.)":
             play sound "audio/sfx clownhonk.mp3"
@@ -183,7 +181,7 @@ label goth_cafe:
 
     menu:
         "Bad joke 2. (Replace this with dialogue.)":
-            melon "You're not funny."
+            marble "You're not funny."
 
         "Good joke. Made her laugh. (Replace this with dialogue.)":
             play sound "audio/sfx clownhonk.mp3"
@@ -196,10 +194,10 @@ label goth_cafe:
                 show hp 1
             if gothHealth <= 0:
                 show hp 0
-    
+
     menu:
         "Bad joke 3. (Replace this with dialogue.)":
-            melon "You suck."
+            marble "You suck."
 
         "Good joke. Made her laugh. (Replace this with dialogue.)":
             play sound "audio/sfx clownhonk.mp3"
@@ -212,8 +210,8 @@ label goth_cafe:
                 show hp 1
             if gothHealth <= 0:
                 show hp 0
-    
-    melon "Get out."
+
+    marble "Get out."
     if gothHealth >= 3:
         jump clown_town
     else:
@@ -233,28 +231,50 @@ label gun_wiz:
         zoom 0.5
         xalign 0.05
         yalign 0.05
-    
-    return
+
+    jump scene_select
 
 label beef_house:
     scene bg beefhouse
     with fade
 
-    beef "Words go here."
+    show beef hag
 
+    "This decrepit old man welcomes you."
+
+    beef "Oh... welcome, sonny, to my humble dwelling."
+
+    show beef hag_grab
+
+    beef "Here, let me get a little more comfortable..."
+
+    show beef neutral
     show hp 0:
-        zoom 0.5
-        xalign 0.05
-        yalign 0.05
-    
-    jump scene_select
+            zoom 0.5
+            xalign 0.05
+            yalign 0.05
 
+    beef "That's better."
+
+    me "Haha what if joke."
+
+    show beef neutral_boob
+    with hpunch
+
+    beef "AHAHAHAHAAA what a jester you are!"
+
+    jump scene_select
 
 label clown_town:
     scene bg clowntown
     play music "audio/bgm clowntown.mp3"
-    
-    me "Damn."
+
+    me "Hehehehehe."
+
+    menu:
+        extend ""
+        "Accept your fate.":
+            return
 
     return
 
