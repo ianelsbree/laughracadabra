@@ -14,6 +14,7 @@ define marble = Character("Marble", color="#000000")
 define beef = Character("Beef", color="#000062")
 define slip = Character("Slip", color="#1e2900")
 define slay = Character("Slay", color="#61012d")
+define shrimp = Character("The High Prawn Wizard")
 
 # Wizard health variables
 default skaterHealth = 0
@@ -46,6 +47,9 @@ label scene_select:
         
         "The Town Square":
             jump town_scene
+
+        "The Ocean Floor":
+            jump ocean_floor
 
 # The game starts here.
 label start:
@@ -285,6 +289,131 @@ label tropics_scene:
     with fade
 
     jump scene_select
+
+
+label ocean_floor:
+    scene bg oceanfloor
+    with fade
+
+    me "Am I underwater???"
+
+    show shrimp neutral
+    shrimp "BEHOLD, mere mortal!"
+
+    me "..."
+
+    shrimp "You DARE approach me? 'Tis I, the HIGH PRAWN WIZARD!"
+
+    shrimp "Tell me a witty jest, at your peril!!!"
+    show hp 0:
+            zoom 0.5
+            xalign 0.05
+            yalign 0.05
+
+    me "Alright, let's give it a shot..."
+
+    menu:
+        "What do you call a prawn who will not share his plant material, decaying organic matter, micro-organisms, small shellfish and worms?":
+            shrimp "Hmm?"
+            me "Shelfish!"
+            show shrimp mad
+            shrimp "Not funny!"
+
+        "What did one prawn say to his special prawn friend?":
+
+            shrimp "Do tell me!"
+
+            me "You're one in a krillion!!!"
+            play sound "audio/sfx clownhonk.mp3"
+
+            $ shrimpHealth += 1
+
+            if shrimpHealth == 1:
+                show hp 1
+            if shrimpHealth == 2:
+                show hp 2
+            if shrimpHealth == 3:
+                show hp 3
+
+            show shrimp laugh
+            shrimp "Ah! Ah ha ha!"
+
+    show shrimp neutral
+    shrimp "Tell me another, you fool!"
+
+    menu:
+        "What happened to the prawn who's business took off?":
+
+            shrimp "Tell me! I must know!"
+
+            me "They became a krillionaire!"
+            play sound "audio/sfx clownhonk.mp3"
+
+            $ shrimpHealth += 1
+
+            if shrimpHealth == 1:
+                show hp 1
+            if shrimpHealth == 2:
+                show hp 2
+            if shrimpHealth == 3:
+                show hp 3
+
+            show shrimp laugh
+            shrimp "Wow! You are a very amusing mortal!"
+
+        "How did the prawn perish?":
+
+            shrimp "How did they indeed?"
+
+            me "They contracted a deadly krillness!"
+
+            show shrimp mad
+            shrimp "That is not a funny topic! I do not laugh! No no!"
+
+    show shrimp neutral
+    shrimp "One last chance at a joke for you!"
+
+    menu:
+        "What did the prawn say when discussing options for urban housing?":
+
+            shrimp "Hmm?"
+
+            me "Apartment complex? I find it quite SHRIMPLE!"
+
+            shrimp "..."
+
+            shrimp "......"
+
+            show shrimp laugh
+            play sound "audio/sfx clownhonk.mp3"
+            shrimp "OH, I understand! Because I am a shrimp! Hahahahahahaha!!!"
+
+            $ shrimpHealth += 1
+
+            if shrimpHealth == 1:
+                show hp 1
+            if shrimpHealth == 2:
+                show hp 2
+            if shrimpHealth == 3:
+                show hp 3
+
+        "What do opposing prawns do in warfare?":
+
+            shrimp "Do tell?"
+
+            me "They Krill each other!"
+
+            shrimp "..."
+
+            shrimp "......"
+
+            show shrimp mad
+            shrimp "Not amusing enough. Begone!"
+
+    show shrimp neutral
+    shrimp "Perhaps we shall meet again, mere mortal. Now begone from my throne of the High Prawn Wizard!"
+
+
 
 label town_scene:
     scene bg townsquare
