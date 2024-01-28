@@ -95,7 +95,7 @@ label start:
     "You step outside, and see a run-down skatepark nearby."
 
     menu:
-        "Head to the skatepark":
+        "Head to the skatepark.":
             jump skater_wiz
         
         "Fuck that. Let's go to the cafe.":
@@ -115,8 +115,9 @@ label skater_wiz:
     skater_wizard "What's groovy, man?{w=1.0} What's your name?"
 
     show hp 3:
-        xalign 0.0
-        yalign 0.0
+        zoom 0.5
+        xalign 0.05
+        yalign 0.05
 
     pause 2.0
 
@@ -142,8 +143,9 @@ label goth_cafe:
 
     show melon neutral
     show hp 3:
-        xalign 0.0
-        yalign 0.0
+        zoom 0.5
+        xalign 0.05
+        yalign 0.05
     
     melon "...Hi."
 
@@ -157,12 +159,15 @@ label goth_cafe:
         melon "...What can I get you?{fast}"
         "Bad choice. Take damage. (Replace this with dialogue.)":
             $ gothHealth -= 1
+
             if gothHealth == 2:
                 show hp 2
             if gothHealth == 1:
                 show hp 1
             if gothHealth <= 0:
                 show hp 0
+
+            play sound "audio/sfx clownhonk.mp3"
 
             "Ouch."
 
@@ -172,6 +177,7 @@ label goth_cafe:
     menu:
         "Bad choice 2. Take damage. (Replace this with dialogue.)":
             $ gothHealth -= 1
+
             if gothHealth == 2:
                 show hp 2
             if gothHealth == 1:
@@ -179,6 +185,8 @@ label goth_cafe:
             if gothHealth <= 0:
                 show hp 0
             
+            play sound "audio/sfx clownhonk.mp3"
+
             "Ouch."
 
         "Mid choice. No damage. (Replace this with dialogue.)":
@@ -187,12 +195,16 @@ label goth_cafe:
     menu:
         "Bad choice 3. Take damage. (Replace this with dialogue.)":
             $ gothHealth -= 1
+
             if gothHealth == 2:
                 show hp 2
             if gothHealth == 1:
                 show hp 1
             if gothHealth <= 0:
                 show hp 0
+            
+            play sound "audio/sfx clownhonk.mp3"
+
 
             "Ouch."
 
@@ -216,8 +228,9 @@ label gun_wiz:
     me "Add dialogue."
 
     show hp 3:
-        xalign 0.0
-        yalign 0.0
+        zoom 0.5
+        xalign 0.05
+        yalign 0.05
     
     jump scene_select
 
