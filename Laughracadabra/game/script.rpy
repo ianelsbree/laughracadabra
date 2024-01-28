@@ -26,9 +26,11 @@ label start:
 
     "Then, a light."
 
-    scene bg light
+    scene bg light with dissolve
 
     me "What? Where am I?"
+
+    scene bg giftshop with dissolve
 
     "A gift shop."
 
@@ -41,6 +43,7 @@ label start:
     me "They're all so good! Which one should I choose?"
 
     menu:
+
         "Gorgonzola":
             $ name = "Gorgonzola"
 
@@ -114,6 +117,8 @@ label skater_wiz:
 
 
 label goth_cafe:
+
+    # scene bg cafe
 
     "You make your way across a baren field to a small, cozy cafe made of black brick. The aroma of strong coffee and bitter chocolate emenates from the little building."
 
