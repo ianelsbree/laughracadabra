@@ -10,12 +10,14 @@ define me = Character("[name]")
 define narrator = Character(what_italic=True)
 define skater_wizard = Character("Skater Wizard", image="bo")
 define bo = Character("Bo Rad", color="#ff47cc", image="bo")
-define marble = Character("Marble", color="#000000")
-define beef = Character("Beef", color="#000062")
-define slip = Character("Slip", color="#1e2900")
-define slay = Character("Slay", color="#61012d")
-define shrimp = Character("The High Prawn Wizard")
-define frog = Character("Frogbert", color="#3a703aff")
+define marble = Character("Marble", color="#000000", image="marble")
+define beef = Character("Beef", color="#000062", image="beef")
+define slip = Character("Slip", color="#1e2900", image="slip")
+define slay = Character("Slay", color="#61012d", image="slay")
+define gun = Character("Gun", color="#6b1414", image="gun")
+define judge = Character("", what_font="Jokerman-Regular.ttf", what_size=40)
+define shrimp = Character("The High Prawn Wizard", image="shrimp")
+define frog = Character("Frogbert", color="#3a703aff", image="frog")
 
 # Wizard health variables
 default skaterHealth = 0
@@ -26,6 +28,10 @@ default beefHealth = 0
 default devilHealth = 0
 default bugHealth = 0
 default shrimpHealth = 0
+
+define judgement = 0
+image spinner clown = Movie(play="video0.mp4", keep_last_frame=True)
+image spinner down = Movie(play="video0.mp4", keep_last_frame=True)
 
 label scene_select:
     menu:
@@ -140,6 +146,7 @@ label skatepark_scene:
         zoom 0.5
         xalign 0.05
         yalign 0.05
+    with easeinleft
 
     skater_wizard "What's groovy, man?{w=1.0} What's your name?" (window_background="gui/boring_textbox.png")
 
@@ -153,7 +160,9 @@ label skatepark_scene:
     
     bo "What brings you here?"
 
-    jump scene_select
+    menu:
+        "Explore the field":
+            jump cafe_scene
 
 label cafe_scene:
 
@@ -169,11 +178,13 @@ label cafe_scene:
     "A tired looking goth lady walks up to the counter in front of you."
 
     show marble neutral
+    with easeinright
 
     show hp 0:
         zoom 0.5
         xalign 0.05
         yalign 0.05
+    with easeinleft
     
     marble "...Hi."
 
@@ -236,12 +247,14 @@ label cafe_scene:
     
     marble "Get out."
 
+    menu:
+        "Go adventuring in the desert.":
+            jump desert_scene
+
     if gothHealth >= 3:
         jump clown_town
     if gothHealth <= 0:
         jump down_town
-    else:
-        jump scene_select
 
 
 label desert_scene:
@@ -249,14 +262,19 @@ label desert_scene:
     scene bg gundesert
     with fade
 
+    show gun neutral
+
     me "Add dialogue."
 
     show hp 0:
         zoom 0.5
         xalign 0.05
         yalign 0.05
+    with easeinleft
 
-    jump scene_select
+    menu:
+        "Enter the apartment.":
+            jump beef_scene
 
 label beef_scene:
     
@@ -271,17 +289,15 @@ label beef_scene:
 
     beef "Oh... welcome, sonny, to my humble dwelling."
 
-    show beef hag_grab
+    beef @ grab "Here, let me get a little more comfortable..."
 
-    beef "Here, let me get a little more comfortable..."
-
-    show beef neutral
     show hp 0:
-            zoom 0.5
-            xalign 0.05
-            yalign 0.05
+        zoom 0.5
+        xalign 0.05
+        yalign 0.05
+    with easeinleft
 
-    beef "That's better."
+    beef -hag "That's better."
 
     beef "So go on. Make me laugh!"
 
@@ -294,8 +310,7 @@ label beef_scene:
 
             me "One's a crusty bus station, and the other's a busty crustacean!"
 
-            show beef laugh_boob
-            beef "Aha! That's a good one!"
+            beef boob @ laugh "Aha! That's a good one!"
             play sound "audio/sfx clownhonk.mp3"
 
             $ beefHealth += 1
@@ -313,10 +328,8 @@ label beef_scene:
 
             me "Because seven ate nine!"
 
-            show beef irritated
-            beef "A numbers joke? Laaaaame."
+            beef @ irritated "A numbers joke? Laaaaame."
 
-    show beef neutral
     beef "Let's see what else you've got!"
 
     menu:
@@ -326,8 +339,7 @@ label beef_scene:
 
             me "Ah never mind, they all stink!"
 
-            show beef laugh_boob
-            beef "Ha! I like that. You're real funny."
+            beef boob @ laugh "Ha! I like that. You're real funny."
             play sound "audio/sfx clownhonk.mp3"
 
             $ beefHealth += 1
@@ -345,10 +357,8 @@ label beef_scene:
 
             me "You're pointless!"
 
-            show beef irritated_boob
-            beef "Dude, shapes? Really? Not cool."
+            beef @ irritated "Dude, shapes? Really? Not cool."
 
-    show beef neutral_boob
     beef "Alright, last try. Give me everything you've got!"
 
     menu:
@@ -359,8 +369,7 @@ label beef_scene:
 
             me "Not unless you Count Dracula!"
 
-            show beef irritated_boob
-            beef "That joke sucks, man. Two thumbs down."
+            beef @ irritated "That joke sucks, man. Two thumbs down."
 
         "What do you call a cow with no legs?":
 
@@ -368,8 +377,7 @@ label beef_scene:
 
             me "Ground beef!"
 
-            show beef laugh_boob
-            beef "Ground beef! Because he's on the ground! Ahahaha."
+            beef boob @ laugh "Ground beef! Because he's on the ground! Ahahaha."
             play sound "audio/sfx clownhonk.mp3"
 
             $ beefHealth += 1
@@ -381,10 +389,11 @@ label beef_scene:
             if beefHealth == 3:
                 show hp 3
 
-    show beef neutral_boob
     beef "Now get outta here, kid."
 
-    jump scene_select
+    menu:
+        "Take a trip to the tropics.":
+            jump tropics_scene
 
 label tropics_scene:
 
@@ -580,6 +589,30 @@ label town_scene:
 
     jump scene_select
 
+label judgement_scene:
+
+    scene bg spinner
+    with fade
+
+    judge "Welcome to your judgement!"
+
+    judge "Let's see where you're headed!"
+
+    $ judgement = renpy.random.randint(0, 1)
+
+    # if judgement == 0:
+    #     jump judgement_clown
+    # else:
+    #     jump judgement_down
+        
+    label judgement_clown:
+        scene spinner clown
+        
+    label judgement_down:
+        scene spinner down
+        
+    # "hehejhiuuiiiiiiiiiiiiiiiiiiii"
+
 label clown_town:
     
     scene bg clowntown
@@ -603,5 +636,10 @@ label down_town:
     play music "audio/bgm downtown.mp3"
 
     me "Damn."
+
+    menu:
+        extend ""
+        "Accept your fate.":
+            return
 
     return
