@@ -8,10 +8,12 @@ define skateout = MoveTransition(6.0, leave=offscreenleft, enter_time_warp=_warp
 define name = "You"
 define me = Character("[name]")
 define narrator = Character(what_italic=True)
-define skater_wizard = Character("Skater Wizard")
-define bo = Character("Bo Rad")
+define skater_wizard = Character("Skater Wizard", image="bo")
+define bo = Character("Bo Rad", color="#ff47cc", image="bo")
 define marble = Character("Marble", color="#000000")
-define beef = Character("Beef")
+define beef = Character("Beef", color="#000062")
+define slip = Character("Slip", color="#1e2900")
+define slay = Character("Slay", color="#61012d")
 
 # Wizard health variables
 default skaterHealth = 0
@@ -23,22 +25,22 @@ label scene_select:
         "Where should I go next?"
 
         "The Skatepark":
-            jump skater_wiz
+            jump skatepark_scene
 
         "The Coffee Shop":
-            jump goth_cafe
+            jump cafe_scene
 
         "The Desert":
-            jump gun_wiz
+            jump desert_scene
         
         "The Tropics":
-            jump frog_wiz
+            jump tropics_scene
 
         "Beef's House":
-            jump beef_house
+            jump beef_scene
         
-        "The Townsquare":
-            jump devil_wiz
+        "The Town Square":
+            jump town_scene
 
 # The game starts here.
 label start:
@@ -109,12 +111,12 @@ label start:
         extend ""
 
         "Head to the skatepark.":
-            jump skater_wiz
+            jump skatepark_scene
 
         # "Fuck that. Let's go to the cafe.":
-        #     jump goth_cafe
+        #     jump cafe_scene
 
-label skater_wiz:
+label skatepark_scene:
 
     scene bg skatepark
     with fade
@@ -143,7 +145,7 @@ label skater_wiz:
 
     jump scene_select
 
-label goth_cafe:
+label cafe_scene:
 
     scene bg cafe
     with fade
@@ -228,7 +230,7 @@ label goth_cafe:
         jump scene_select
 
 
-label gun_wiz:
+label desert_scene:
 
     scene bg gundesert
     with fade
@@ -242,7 +244,7 @@ label gun_wiz:
 
     jump scene_select
 
-label beef_house:
+label beef_scene:
     scene bg beefhouse
     with fade
 
@@ -271,15 +273,24 @@ label beef_house:
 
     beef "AHAHAHAHAAA what a jester you are!"
 
-label frog_wiz:
+    jump scene_select
+
+label tropics_scene:
     scene bg frogroom
     with fade
 
     jump scene_select
 
-label devil_wiz:
+label town_scene:
     scene bg townsquare
     with fade
+
+    show slay talk_closed
+    show slip talk_closed
+
+    slip "Howdy!"
+
+    slay "Meowdy."
 
     jump scene_select
 
@@ -298,6 +309,7 @@ label clown_town:
 
 label down_town:
     scene bg downtown
+    play music "audio/bgm downtown.mp3"
 
     me "Damn."
 
