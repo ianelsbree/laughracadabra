@@ -159,7 +159,139 @@ label skatepark_scene:
 
     skater_wizard "Well hey there, [name], and what an odd name that is. My name's Bo!{p=1.0}That's short for Skateboard Radical."
     
-    bo "What brings you here?"
+    show bo explain
+
+    bo "Well, you must be new here! You're gonna meet a lot of interesting folks today."
+
+    bo "It's in your best interest to use the spells in your spell book to make them all laugh!"
+
+    menu:
+        "Why?":
+
+            bo "You'll see!"
+
+        "Okay":
+
+            bo "Alright, let's see..."
+
+    bo "Everyone you meet will be weak to a certain type of humor."
+
+    bo "Let's see what spells you've got!"
+
+    narrator "\"Propose\""
+
+    bo "Woah! That's a powerful spell! You won't make it through this with just one spell though. Let me lend you a hand and teach you some of mine."
+
+    bo "I put an enchantment on your spell book as well, to help you choose spells, so you don't have to look through the whole thing every time."
+
+    bo "How about you try to make me laugh? I'll give you a hint, my favorite kind of joke is a knock knock joke!"
+
+    menu:
+
+        "Knock knock?":
+
+            bo "Who's there?"
+
+            me "Ice cream."
+
+            bo "Ice cream who?"
+
+            me "ICE CREAM SO YOU CAN HEAR ME!"
+            play sound "audio/sfx clownhonk.mp3"
+
+            $ skaterHealth += 1
+
+            if skaterHealth == 1:
+                show hp 1
+            if skaterHealth == 2:
+                show hp 2
+            if skaterHealth == 3:
+                show hp 3
+
+            bo "Heh... That was pretty groovy. Why don't you try another one?"
+
+        "How does a penguin guild its house?":
+
+            bo "How?"
+
+            me "Igloos it together!"
+
+            bo "... {p}Well, not terrible, but it's not my kind of joke."
+
+            bo "Why don't you try again?"
+
+    menu:
+
+        "Knock knock!":
+
+            bo "Who's there?"
+
+            me "Interupting cow."
+
+            bo "Interupting cow wh--?"
+
+            me "MOOOOO!"
+            play sound "audio/sfx clownhonk.mp3"
+
+            $ skaterHealth += 1
+
+            if skaterHealth == 1:
+                show hp 1
+            if skaterHealth == 2:
+                show hp 2
+            if skaterHealth == 3:
+                show hp 3
+
+            bo "You've got some totally tubular jokes! Gimme one more!"
+
+        "What do you call a fly without wings?":
+
+            bo "What?"
+
+            me "A walk!"
+
+            bo "...{p}I'm sure thta joke would work for someone else, but remember, I like {bold}knock knock jokes{/bold}."
+
+            bo "Try again."
+
+    menu:
+
+        "What's the difference between a piano and a fish?":
+
+            bo "What?"
+
+            me "You can tune a piano, but you can't tuna fish!"
+
+            bo "...{p}If you'd been funnier, I would have laughed. Like this!"
+
+            show bo thumb
+
+        "Knock, knock!":
+
+            bo "Who's there?"
+
+            me "Cash."
+
+            bo "Cash who?"
+
+            me "No thanks, but I'd love some peanuts!"
+
+            show bo thumb
+            play sound "audio/sfx clownhonk.mp3"
+
+            $ skaterHealth += 1
+
+            if skaterHealth == 1:
+                show hp 1
+            if skaterHealth == 2:
+                show hp 2
+            if skaterHealth == 3:
+                show hp 3
+
+            bo "RADICAL! I think you're ready to go!"
+
+    bo "I'll send word of your arrival to the others.{p}Good luck, [name]!"
+
 
     menu:
         "Explore the field":
@@ -278,6 +410,7 @@ label desert_scene:
             jump beef_scene
 
 label beef_scene:
+    define boob_flag = False
     
     scene bg beefhouse
     with fade
@@ -290,15 +423,18 @@ label beef_scene:
 
     beef "Oh... welcome, sonny, to my humble dwelling."
 
-    beef @ grab "Here, let me get a little more comfortable..."
+    beef grab "Here, let me get a little more comfortable..."
 
+    show beef neutral
+    with hpunch
+    
     show hp 0:
         zoom 0.5
         xalign 0.05
         yalign 0.05
     with easeinleft
 
-    beef -hag "That's better."
+    beef "That's better."
 
     beef "So go on. Make me laugh!"
 
@@ -311,6 +447,7 @@ label beef_scene:
 
             me "One's a crusty bus station, and the other's a busty crustacean!"
 
+            $ boob_flag = True
             beef boob @ laugh "Aha! That's a good one!"
             play sound "audio/sfx clownhonk.mp3"
 
@@ -339,7 +476,8 @@ label beef_scene:
             beef "Yes! Tell me."
 
             me "Ah never mind, they all stink!"
-
+            
+            $ boob_flag = True
             beef boob @ laugh "Ha! I like that. You're real funny."
             play sound "audio/sfx clownhonk.mp3"
 
@@ -358,7 +496,10 @@ label beef_scene:
 
             me "You're pointless!"
 
-            beef @ irritated "Dude, shapes? Really? Not cool."
+            if boob_flag:
+                beef boob @ irritated "Dude, shapes? Really? Not cool."
+            else:
+                beef @ irritated "Dude, shapes? Really? Not cool."
 
     beef "Alright, last try. Give me everything you've got!"
 
@@ -378,6 +519,8 @@ label beef_scene:
 
             me "Ground beef!"
 
+            $ boob_flag = True
+
             beef boob @ laugh "Ground beef! Because he's on the ground! Ahahaha."
             play sound "audio/sfx clownhonk.mp3"
 
@@ -390,7 +533,11 @@ label beef_scene:
             if beefHealth == 3:
                 show hp 3
 
-    beef "Now get outta here, kid."
+    if boob_flag:
+        beef boob "Now get outta here, kid."
+    else:
+        beef "Now get outta here, kid."
+
 
     menu:
         "Take a trip to the tropics.":
