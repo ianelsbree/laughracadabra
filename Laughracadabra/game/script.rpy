@@ -796,24 +796,93 @@ label bug_scene:
 
     play music "audio/bgm bug.mp3"
 
-    show bug happy
-    bug "Hello! Welcome! Who are you? How are you? What brings you by? Sorry, I don't get vistors often."
+    show bug neutral
+    bug " ……."
 
     show hp 0:
             zoom 0.5
             xalign 0.05
             yalign 0.05
+    
+    me "Hi?"
+
+    bug " ………."
+
+    bug "hello… {p}I heard you’d be heading over but I didn’t realize I'd be so soon.{p} My name’s Persinamon by the way."
+
+    me "Nice to meet you, I’m [name]. "
+
+    me "I’m supposed to fight you, I think?"
+
+    bug "Oh! Okay, I guess…if you want…"
 
     menu:
-        "Hello?":
-            show bug neutral
-            bug "Sorry, I didn't mean to be so excited."
+        "How do you ask a Gardener out on a date?":
+            bug "I don’t know…"
+            me "Have and Plants this evening?"
+            bug "Hehehe…th-that’s pretty funny…do you have any more jokes?"
+            $ bugHealth += 1
 
-        "Hi! How are you?":
+        "Two cannibals were eating a stand-up comedian.":
+            me "One says to the other, “Does this taste funny to you?” The other says, “No.”"
+            me "And they keep eating."
+
+            show bug upset
+            bug "….thats in poor taste…."
+    
+    show bug neutral
+    if bugHealth == 1:
+        show hp 1
+    if bugHealth == 2:
+        show hp 2
+    if bugHealth == 3:
+        show hp 3
+
+    menu:
+        "Why did the thief bring a ladder to the bank robbery?":
+            bug "…Umm, I don’t know…"
+            me "He wanted to go for the high interest rates!"
+            show bug sad
+            bug "…stealing is not very good…"
+
+        "What do you call a snowman that a snail made?":
+            bug "W-what do you call it?"
+            me "A slow-man!"
             show bug laugh
-            bug "I'm well! And you?"
-            me "Good!"
-            me "Except for all this battling stuff."
+            bug "Wow, th-that’s so silly!"
+            $ bugHealth += 1
+
+    show bug neutral
+    if bugHealth == 1:
+        show hp 1
+    if bugHealth == 2:
+        show hp 2
+    if bugHealth == 3:
+        show hp 3
+
+    menu:
+        "What is a murderer’s favorite genre of music?":
+            bug "….I don’t know…."
+            me "Death Metal!"
+            show bug disgust
+            bug "Th-that’s horrible…"
+
+        "What kind of bug likes being a DJ the most?":
+            bug "I’m not sure, w-which one?"
+            me "A Beat-le!"
+            show bug laugh
+            bug "Hahaha! That’s a very good one…hehehe…"
+            $ bugHealth += 1
+
+    if bugHealth <= 0:
+        bug "I don’t like your sense of humor very much. I don’t think that we can be friends. Please get out of here!"
+    if bugHealth == 1:
+        show hp 1
+    if bugHealth == 2:
+        show hp 2
+    if bugHealth == 3:
+        show hp 3
+        bug "You’re really funny! It's been lovely to hang out with you! Let’s hang out again sometime!"
 
     jump town_scene
 
