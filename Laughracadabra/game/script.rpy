@@ -10,8 +10,12 @@ define narrator = Character(what_italic=True)
 define bo = Character("Bo")
 define melon = Character("Melondy", color="#000000")
 
-# The game starts here.
+# Wizard health variables
+default skaterHealth = 3
+default gothHealth = 3
+default gunHealth = 3
 
+# The game starts here.
 label start:
 
     scene bg dark
@@ -37,9 +41,11 @@ label start:
     me "I think I see something in the distance over there. It looks like... a skate park?"
 
     menu:
-
         "Head towards the run down skate park":
             jump skater_wiz
+        
+        "Fuck that. Let's go to the cafe":
+            jump goth_cafe
 
 
 
@@ -77,6 +83,15 @@ label goth_cafe:
 
     melon "...What can I get you?"
 
+    menu:
+        "Bad choice. Take damage. (Replace this with dialogue.)":
+            $ gothHealth -= 1
+            
+            "Ouch."
+
+        "Mid choice. No damage. (Replace this with dialogue.)":
+            "Boring."
+        
     return
 
 
