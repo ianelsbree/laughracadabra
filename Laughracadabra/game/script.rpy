@@ -12,9 +12,12 @@ define skater_wizard = Character("Skater Wizard")
 define bo = Character("Bo Rad")
 define melon = Character("Melondy", color="#000000")
 
+# Wizard health variables
+default skaterHealth = 3
+default gothHealth = 3
+default gunHealth = 3
 
 # The game starts here.
-
 label start:
 
     scene bg dark
@@ -77,6 +80,9 @@ label start:
     menu:
         "Head to the skatepark":
             jump skater_wiz
+        
+        "Fuck that. Let's go to the cafe":
+            jump goth_cafe
 
 
 label skater_wiz:
@@ -118,6 +124,15 @@ label goth_cafe:
 
     melon "...What can I get you?"
 
+    menu:
+        "Bad choice. Take damage. (Replace this with dialogue.)":
+            $ gothHealth -= 1
+            
+            "Ouch."
+
+        "Mid choice. No damage. (Replace this with dialogue.)":
+            "Boring."
+        
     return
 
 
