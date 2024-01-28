@@ -294,8 +294,7 @@ label beef_scene:
 
             me "One's a crusty bus station, and the other's a busty crustacean!"
 
-            show beef boob @ laugh
-            beef "Aha! That's a good one!"
+            beef boob @ laugh "Aha! That's a good one!"
             play sound "audio/sfx clownhonk.mp3"
 
             $ beefHealth += 1
@@ -313,10 +312,8 @@ label beef_scene:
 
             me "Because seven ate nine!"
 
-            show beef irritated
-            beef "A numbers joke? Laaaaame."
+            beef @ irritated "A numbers joke? Laaaaame."
 
-    show beef neutral
     beef "Let's see what else you've got!"
 
     menu:
@@ -326,8 +323,7 @@ label beef_scene:
 
             me "Ah never mind, they all stink!"
 
-            show beef boob @ laugh
-            beef "Ha! I like that. You're real funny."
+            beef boob @ laugh "Ha! I like that. You're real funny."
             play sound "audio/sfx clownhonk.mp3"
 
             $ beefHealth += 1
@@ -345,10 +341,8 @@ label beef_scene:
 
             me "You're pointless!"
 
-            show beef irritated_boob
-            beef "Dude, shapes? Really? Not cool."
+            beef @ irritated "Dude, shapes? Really? Not cool."
 
-    show beef neutral
     beef "Alright, last try. Give me everything you've got!"
 
     menu:
@@ -359,8 +353,7 @@ label beef_scene:
 
             me "Not unless you Count Dracula!"
 
-            show beef irritated_boob
-            beef "That joke sucks, man. Two thumbs down."
+            beef @ irritated "That joke sucks, man. Two thumbs down."
 
         "What do you call a cow with no legs?":
 
@@ -368,8 +361,7 @@ label beef_scene:
 
             me "Ground beef!"
 
-            show beef boob @ laugh
-            beef "Ground beef! Because he's on the ground! Ahahaha."
+            beef boob @ laugh "Ground beef! Because he's on the ground! Ahahaha."
             play sound "audio/sfx clownhonk.mp3"
 
             $ beefHealth += 1
@@ -381,7 +373,6 @@ label beef_scene:
             if beefHealth == 3:
                 show hp 3
 
-    show beef neutral_boob
     beef "Now get outta here, kid."
 
     jump scene_select
