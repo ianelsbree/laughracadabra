@@ -249,7 +249,7 @@ label skatepark_scene:
 
             me "A walk!"
 
-            bo "...{p}I'm sure thta joke would work for someone else, but remember, I like {bold}knock knock jokes{/bold}."
+            bo "...{p}I'm sure that joke would work for someone else, but remember, I like {b}knock knock jokes{/b}."
 
             bo "Try again."
 
@@ -331,7 +331,11 @@ label cafe_scene:
         "Bad joke. (Replace this with dialogue.)":
             marble "Zzz."
 
-        "Good joke. Made her laugh. (Replace this with dialogue.)":
+        "What do you call it when your coffee gets stolen?":
+
+            marble "...{p}What?"
+
+            me "A mugging!"
             play sound "audio/sfx clownhonk.mp3"
 
             $ gothHealth += 1
@@ -342,13 +346,19 @@ label cafe_scene:
                 show hp 2
             if gothHealth == 3:
                 show hp 3
+
+            marble "Heh. Not bad."
 
     menu:
         extend ""
         "Bad joke 2. (Replace this with dialogue.)":
             marble "You're not funny."
 
-        "Good joke. Made her laugh. (Replace this with dialogue.)":
+        "What do you call a coffee shop that you're sure you've been to before?":
+
+            marble "Hmm?"
+
+            me "Deja-brew!"
             play sound "audio/sfx clownhonk.mp3"
 
             $ gothHealth += 1
@@ -359,13 +369,19 @@ label cafe_scene:
                 show hp 2
             if gothHealth == 3:
                 show hp 3
+
+            marble "Ha. I like it."
 
     menu:
         extend ""
         "Bad joke 3. (Replace this with dialogue.)":
             marble "You suck."
 
-        "Good joke. Made her laugh. (Replace this with dialogue.)":
+        "What did the barista's best friend tell them?":
+
+            marble "What?"
+
+            me "You mocha me very happy!"
             play sound "audio/sfx clownhonk.mp3"
 
             $ gothHealth += 1
@@ -376,8 +392,10 @@ label cafe_scene:
                 show hp 2
             if gothHealth == 3:
                 show hp 3
+
+            marble "Ha! You mocha me happy, [name]."
     
-    marble "Get out."
+    marble "Have a nice day. {p}Get out."
 
     menu:
         "Go adventuring in the desert.":
@@ -396,13 +414,119 @@ label desert_scene:
 
     show gun neutral
 
-    me "Add dialogue."
+    gun "MEOWDY PRRRRRRTNER!"
+
+    me "Meowdy!"
 
     show hp 0:
         zoom 0.5
         xalign 0.05
         yalign 0.05
     with easeinleft
+
+    gun "COME TO DUEL ME??{p} THE FEARED OUTLAW GUN OF THIS HERE DESERT????"
+
+    gun "HOPE YOU'VE GOT GOOD REFLEXES PRRRRTNER."
+
+    gun "GET READY TO RUUUUUUMBLE!"
+
+    menu:
+        extend ""
+        "Why did the chicken cross the road?":
+
+            gun "HMMM WHY?"
+
+            me "It exploded."
+
+            gun "HEHE SPLENDID!! NOW GO AGAIN!"
+            play sound "audio/sfx clownhonk.mp3"
+
+            $ beefHealth += 1
+
+            if beefHealth == 1:
+                show hp 1
+            if beefHealth == 2:
+                show hp 2
+            if beefHealth == 3:
+                show hp 3
+
+        "What's a cat's favorite color?":
+
+            gun "WHAT?"
+
+            me "Purr-ple!"
+
+            gun "ARE YA MAKIN' FUN OF ME??? YOU'RE DEAD MEAT!!!"
+
+    gun "GIVE ME ANOTHER ONE!!!"
+
+    menu:
+        extend ""
+        "What's a cat's favorite cereal?":
+
+            gun "WHAT...?"
+
+            me "Mice crispies!"
+
+            gun "ARE YOU MAKIN' FUN OF ME?? YOU RUDE RUSTY HORSESHOE!!! YOU ROTTEN CACTUS FRUIT!!! YOU DUSTY TUMBLEWEED!!!!!"
+
+        "A man, a horse, and a cattle dog walked into a bar.":
+
+            gun "AND THEN?"
+
+            me "They exploded."
+
+            gun "AHHHHAHAHAHAH WONDERFUL! TELL ME ANOTHER!!"
+            play sound "audio/sfx clownhonk.mp3"
+
+            $ beefHealth += 1
+
+            if beefHealth == 1:
+                show hp 1
+            if beefHealth == 2:
+                show hp 2
+            if beefHealth == 3:
+                show hp 3
+
+    gun "LAST CHANCE!!!"
+
+    menu:
+        extend ""
+        "What do you call a horse on fire that runs into a barn full of dynamite?":
+
+            gun "HMMM WHAT?"
+
+            me "An exploded horse!"
+
+            gun "YEEE PAWWWW! YOU'RE ONE FUNNY FELLOW, PRRRRTNER!"
+            play sound "audio/sfx clownhonk.mp3"
+
+            $ beefHealth += 1
+
+            if beefHealth == 1:
+                show hp 1
+            if beefHealth == 2:
+                show hp 2
+            if beefHealth == 3:
+                show hp 3
+
+            gun "YA SURE GAVE ME A CHUCKLE!"
+
+            gun "HOPE TO SEE YA AROUND, PRRRRTNER!!!"
+
+            me "See ya!"
+
+        "What's a cat's favorite subject in school?":
+
+            gun "WHAT...?"
+
+            me "Hisstory."
+
+            gun "ARE YOU MAKIN FUN OF ME??? I'M GONNA KILL YA WITH MY GUN!!!"
+
+            gun "GET OUT OF MY DESERT YOU HOOLIGAN BEFORE I PUT YOU SIX FEET UNDER!"
+
+            me "Uh oh..."   
 
     menu:
         "Enter the apartment.":
@@ -437,9 +561,8 @@ label beef_scene:
 
     beef "So go on. Make me laugh!"
 
-    me "Uhh... Let's see..." 
-
     menu:
+        extend ""
         "What's the difference between an old bus stop and a lobster with big breasts?":
 
             beef "Hmm?"
@@ -470,6 +593,7 @@ label beef_scene:
     beef "Let's see what else you've got!"
 
     menu:
+        extend ""
         "Want to hear a poop joke?":
 
             beef "Yes! Tell me."
@@ -503,7 +627,7 @@ label beef_scene:
     beef "Alright, last try. Give me everything you've got!"
 
     menu:
-
+        extend ""
         "Are monsters good at math?":
 
             beef "I don't know, are they?"
@@ -620,6 +744,7 @@ label ocean_floor:
     me "Alright, let's give it a shot..."
 
     menu:
+        extend ""
         "What do you call a prawn who will not share his plant material, decaying organic matter, micro-organisms, small shellfish and worms?":
             shrimp "Hmm?"
             me "Shelfish!"
@@ -649,6 +774,7 @@ label ocean_floor:
     shrimp "Tell me another, you fool!"
 
     menu:
+        extend ""
         "What happened to the prawn who's business took off?":
 
             shrimp "Tell me! I must know!"
@@ -681,6 +807,7 @@ label ocean_floor:
     shrimp "One last chance at a joke for you!"
 
     menu:
+        extend ""
         "What did the prawn say when discussing options for urban housing?":
 
             shrimp "Hmm?"
