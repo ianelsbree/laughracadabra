@@ -31,8 +31,8 @@ default bugHealth = 0
 default shrimpHealth = 0
 
 define judgement = 0
-image spinner clown = Movie(play="video0.mp4", keep_last_frame=True)
-image spinner down = Movie(play="video0.mp4", keep_last_frame=True)
+image spinner_clown = Movie(play="spin_for_clowntown.mpeg", loop=False, keep_last_frame=True)
+image spinner_down = Movie(play="spin_for_downtown.mpeg", loop=False, keep_last_frame=True)
 
 label scene_select:
     menu:
@@ -250,7 +250,7 @@ label skatepark_scene:
 
             me "A walk!"
 
-            bo "...{p}I'm sure thta joke would work for someone else, but remember, I like {bold}knock knock jokes{/bold}."
+            bo "...{p}I'm sure that joke would work for someone else, but remember, I like {b}knock knock jokes{/b}."
 
             bo "Try again."
 
@@ -263,6 +263,16 @@ label skatepark_scene:
             me "You can tune a piano, but you can't tuna fish!"
 
             bo "...{p}If you'd been funnier, I would have laughed. Like this!"
+
+            $ skaterHealth = 3
+
+            if skaterHealth == 1:
+                show hp 1
+            if skaterHealth == 2:
+                show hp 2
+            if skaterHealth == 3:
+                show hp 3
+
 
             show bo thumb
 
@@ -332,7 +342,11 @@ label cafe_scene:
         "Bad joke. (Replace this with dialogue.)":
             marble "Zzz."
 
-        "Good joke. Made her laugh. (Replace this with dialogue.)":
+        "What do you call it when your coffee gets stolen?":
+
+            marble "...{p}What?"
+
+            me "A mugging!"
             play sound "audio/sfx clownhonk.mp3"
 
             $ gothHealth += 1
@@ -343,13 +357,19 @@ label cafe_scene:
                 show hp 2
             if gothHealth == 3:
                 show hp 3
+
+            marble "Heh. Not bad."
 
     menu:
         extend ""
         "Bad joke 2. (Replace this with dialogue.)":
             marble "You're not funny."
 
-        "Good joke. Made her laugh. (Replace this with dialogue.)":
+        "What do you call a coffee shop that you're sure you've been to before?":
+
+            marble "Hmm?"
+
+            me "Deja-brew!"
             play sound "audio/sfx clownhonk.mp3"
 
             $ gothHealth += 1
@@ -360,13 +380,19 @@ label cafe_scene:
                 show hp 2
             if gothHealth == 3:
                 show hp 3
+
+            marble "Ha. I like it."
 
     menu:
         extend ""
         "Bad joke 3. (Replace this with dialogue.)":
             marble "You suck."
 
-        "Good joke. Made her laugh. (Replace this with dialogue.)":
+        "What did the barista's best friend tell them?":
+
+            marble "What?"
+
+            me "You mocha me very happy!"
             play sound "audio/sfx clownhonk.mp3"
 
             $ gothHealth += 1
@@ -377,8 +403,10 @@ label cafe_scene:
                 show hp 2
             if gothHealth == 3:
                 show hp 3
+
+            marble "Ha! You mocha me happy, [name]."
     
-    marble "Get out."
+    marble "Have a nice day. {p}Get out."
 
     menu:
         "Go adventuring in the desert.":
@@ -399,13 +427,136 @@ label desert_scene:
 
     show gun neutral
 
-    me "Add dialogue."
+    gun "MEOWDY PRRRRRRTNER!"
+
+    me "Meowdy!"
 
     show hp 0:
         zoom 0.5
         xalign 0.05
         yalign 0.05
     with easeinleft
+
+    show gun talk
+    gun "COME TO DUEL ME??{p} THE FEARED OUTLAW GUN OF THIS HERE DESERT????"
+
+
+    gun "HOPE YOU'VE GOT GOOD REFLEXES PRRRRTNER."
+
+    gun "GET READY TO RUUUUUUMBLE!"
+
+    menu:
+        extend ""
+        "Why did the chicken cross the road?":
+
+            show gun shy
+            gun "HMMM WHY?"
+
+            me "It exploded."
+
+            show gun explode
+            pause 2.0
+            show gun silly
+            gun "HEHE SPLENDID!! NOW GO AGAIN!"
+            play sound "audio/sfx clownhonk.mp3"
+
+            $ beefHealth += 1
+
+            if beefHealth == 1:
+                show hp 1
+            if beefHealth == 2:
+                show hp 2
+            if beefHealth == 3:
+                show hp 3
+
+        "What's a cat's favorite color?":
+
+            gun "WHAT?"
+
+            me "Purr-ple!"
+
+            show gun upset
+            gun "ARE YA MAKIN' FUN OF ME??? YOU'RE DEAD MEAT!!!"
+
+    show gun talk
+    gun "GIVE ME ANOTHER ONE!!!"
+
+    menu:
+        extend ""
+        "What's a cat's favorite cereal?":
+
+            gun "WHAT...?"
+
+            me "Mice crispies!"
+
+            show gun upset
+            gun "ARE YOU MAKIN' FUN OF ME?? YOU RUDE RUSTY HORSESHOE!!! YOU ROTTEN CACTUS FRUIT!!! YOU DUSTY TUMBLEWEED!!!!!"
+
+        "A man, a horse, and a cattle dog walked into a bar.":
+
+            gun "AND THEN?"
+
+            me "They exploded."
+
+            show gun explode 
+            pause 2.0
+            show gun silly
+            gun "AHHHHAHAHAHAH WONDERFUL! TELL ME ANOTHER!!"
+            play sound "audio/sfx clownhonk.mp3"
+
+            $ beefHealth += 1
+
+            if beefHealth == 1:
+                show hp 1
+            if beefHealth == 2:
+                show hp 2
+            if beefHealth == 3:
+                show hp 3
+
+    show gun neutral
+    gun "LAST CHANCE!!!"
+
+    menu:
+        extend ""
+        "What do you call a horse on fire that runs into a barn full of dynamite?":
+
+            gun "HMMM WHAT?"
+
+            me "An exploded horse!"
+
+            show gun explode
+            pause 2
+            show gun silly
+            gun "YEEE PAWWWW! YOU'RE ONE FUNNY FELLOW, PRRRRTNER!"
+            play sound "audio/sfx clownhonk.mp3"
+
+            $ beefHealth += 1
+
+            if beefHealth == 1:
+                show hp 1
+            if beefHealth == 2:
+                show hp 2
+            if beefHealth == 3:
+                show hp 3
+
+            gun "YA SURE GAVE ME A CHUCKLE!"
+
+            gun "HOPE TO SEE YA AROUND, PRRRRTNER!!!"
+
+            me "See ya!"
+
+        "What's a cat's favorite subject in school?":
+
+            gun "WHAT...?"
+
+            me "Hisstory."
+
+            show gun mad
+            gun "ARE YOU MAKIN FUN OF ME??? I'M GONNA KILL YA WITH MY GUN!!!"
+
+            gun "GET OUT OF MY DESERT YOU HOOLIGAN BEFORE I PUT YOU SIX FEET UNDER!"
+
+            me "Uh oh..."   
 
     menu:
         "Enter the apartment.":
@@ -440,9 +591,8 @@ label beef_scene:
 
     beef "So go on. Make me laugh!"
 
-    me "Uhh... Let's see..." 
-
     menu:
+        extend ""
         "What's the difference between an old bus stop and a lobster with big breasts?":
 
             beef "Hmm?"
@@ -473,6 +623,7 @@ label beef_scene:
     beef "Let's see what else you've got!"
 
     menu:
+        extend ""
         "Want to hear a poop joke?":
 
             beef "Yes! Tell me."
@@ -506,7 +657,7 @@ label beef_scene:
     beef "Alright, last try. Give me everything you've got!"
 
     menu:
-
+        extend ""
         "Are monsters good at math?":
 
             beef "I don't know, are they?"
@@ -670,12 +821,12 @@ label tropics_scene:
 
 
 label ocean_floor:
-    scene bg oceanfloor
+    scene bg seafloor
     with fade
 
     me "Am I underwater???"
 
-    show shrimp neutral
+    show shrimp_neutral
     shrimp "BEHOLD, mere mortal!"
 
     me "..."
@@ -691,10 +842,11 @@ label ocean_floor:
     me "Alright, let's give it a shot..."
 
     menu:
+        extend ""
         "What do you call a prawn who will not share his plant material, decaying organic matter, micro-organisms, small shellfish and worms?":
             shrimp "Hmm?"
             me "Shelfish!"
-            show shrimp mad
+            show shrimp_displeased
             shrimp "Not funny!"
 
         "What did one prawn say to his special prawn friend?":
@@ -713,13 +865,14 @@ label ocean_floor:
             if shrimpHealth == 3:
                 show hp 3
 
-            show shrimp laugh
+            show shrimp_laughter
             shrimp "Ah! Ah ha ha!"
 
-    show shrimp neutral
+    show shrimp_neutral
     shrimp "Tell me another, you fool!"
 
     menu:
+        extend ""
         "What happened to the prawn who's business took off?":
 
             shrimp "Tell me! I must know!"
@@ -736,7 +889,7 @@ label ocean_floor:
             if shrimpHealth == 3:
                 show hp 3
 
-            show shrimp laugh
+            show shrimp_laughter
             shrimp "Wow! You are a very amusing mortal!"
 
         "How did the prawn perish?":
@@ -745,13 +898,14 @@ label ocean_floor:
 
             me "They contracted a deadly krillness!"
 
-            show shrimp mad
+            show shrimp_displeased
             shrimp "That is not a funny topic! I do not laugh! No no!"
 
-    show shrimp neutral
+    show shrimp_neutral
     shrimp "One last chance at a joke for you!"
 
     menu:
+        extend ""
         "What did the prawn say when discussing options for urban housing?":
 
             shrimp "Hmm?"
@@ -762,7 +916,7 @@ label ocean_floor:
 
             shrimp "......"
 
-            show shrimp laugh
+            show shrimp_laughter
             play sound "audio/sfx clownhonk.mp3"
             shrimp "OH, I understand! Because I am a shrimp! Hahahahahahaha!!!"
 
@@ -785,10 +939,10 @@ label ocean_floor:
 
             shrimp "......"
 
-            show shrimp mad
+            show shrimp_displeased
             shrimp "Not amusing enough. Begone!"
 
-    show shrimp neutral
+    show shrimp_neutral
     shrimp "Perhaps we shall meet again, mere mortal. Now begone from my throne of the High Prawn Wizard!"
     jump bug_scene
 
@@ -912,19 +1066,26 @@ label judgement_scene:
     judge "Let's see where you're headed!"
 
     $ judgement = renpy.random.randint(0, 1)
+    # $ judgement = 1
 
-    # if judgement == 0:
-    #     jump judgement_clown
-    # else:
-    #     jump judgement_down
+    if judgement == 0:
+        jump judgement_clown
+    else:
+        jump judgement_down
         
     label judgement_clown:
-        scene spinner clown
+        $ renpy.movie_cutscene("spin_for_clowntown.mpeg")
+        play sound "audio/bgm harpup.mp3"
+        scene landed_on_clowntown
+        judge "Looks like you're headed to Clowntown!"
+        jump clown_town
         
     label judgement_down:
-        scene spinner down
-        
-    # "hehejhiuuiiiiiiiiiiiiiiiiiiii"
+        $ renpy.movie_cutscene("spin_for_downtown.mpeg")
+        play sound "audio/bgm harpdown.mp3"
+        scene landed_on_downtown
+        judge "Looks like you're headed Downtown!"
+        jump down_town
 
 label clown_town:
     
