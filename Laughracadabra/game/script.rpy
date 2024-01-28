@@ -97,6 +97,10 @@ label skater_wiz:
 
     skater_wizard "What's groovy, man?{w=1.0} What's your name?"
 
+    show hp 3:
+        xalign 0.0
+        yalign 0.0
+
     pause 2.0
 
     me "[name], nice to meet you."
@@ -116,6 +120,10 @@ label goth_cafe:
 
     "A tired looking goth lady walks up to the counter in front of you."
 
+    show hp 3:
+        xalign 0.0
+        yalign 0.0
+    
     melon "...hi."
 
     melon "..."
@@ -127,7 +135,13 @@ label goth_cafe:
     menu:
         "Bad choice. Take damage. (Replace this with dialogue.)":
             $ gothHealth -= 1
-            
+            if gothHealth == 2:
+                show hp 2
+            if gothHealth == 1:
+                show hp 1
+            if gothHealth <= 0:
+                show hp 0
+
             "Ouch."
 
         "Mid choice. No damage. (Replace this with dialogue.)":
@@ -136,6 +150,12 @@ label goth_cafe:
     menu:
         "Bad choice 2. Take damage. (Replace this with dialogue.)":
             $ gothHealth -= 1
+            if gothHealth == 2:
+                show hp 2
+            if gothHealth == 1:
+                show hp 1
+            if gothHealth <= 0:
+                show hp 0
             
             "Ouch."
 
@@ -145,7 +165,13 @@ label goth_cafe:
     menu:
         "Bad choice 3. Take damage. (Replace this with dialogue.)":
             $ gothHealth -= 1
-            
+            if gothHealth == 2:
+                show hp 2
+            if gothHealth == 1:
+                show hp 1
+            if gothHealth <= 0:
+                show hp 0
+
             "Ouch."
 
         "Mid choice. No damage. (Replace this with dialogue.)":
@@ -165,6 +191,10 @@ label gun_wiz:
 
     me "Add dialogue."
 
+    show hp 3:
+        xalign 0.0
+        yalign 0.0
+    
     return
 
 
