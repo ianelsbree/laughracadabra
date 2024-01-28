@@ -150,7 +150,7 @@ label goth_cafe:
             if gothHealth <= 0:
                 show hp 0
 
-            play sound "audio/sfx placeholder horn.mp3"
+            play sound "audio/sfx clownhonk.mp3"
 
             "Ouch."
 
@@ -168,7 +168,7 @@ label goth_cafe:
             if gothHealth <= 0:
                 show hp 0
             
-            play sound "audio/sfx placeholder horn.mp3"
+            play sound "audio/sfx clownhonk.mp3"
 
             "Ouch."
 
@@ -186,7 +186,7 @@ label goth_cafe:
             if gothHealth <= 0:
                 show hp 0
             
-            play sound "audio/sfx placeholder horn.mp3"
+            play sound "audio/sfx clownhonk.mp3"
 
 
             "Ouch."
