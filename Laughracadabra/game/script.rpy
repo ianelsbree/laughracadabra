@@ -275,12 +275,106 @@ label beef_scene:
 
     beef "That's better."
 
-    me "Haha what if joke."
+    beef "So go on. Make me laugh!"
+
+    me "Uhh... Let's see..." 
+
+    menu:
+        "What's the difference between an old bus stop and a lobster with big breasts?":
+
+            beef "Hmm?"
+
+            me "One's a crusty bus station, and the other's a busty crustacean!"
+
+            show beef laugh_boob
+            beef "Aha! That's a good one!"
+            play sound "audio/sfx clownhonk.mp3"
+
+            $ beefHealth += 1
+
+            if beefHealth == 1:
+                show hp 1
+            if beefHealth == 2:
+                show hp 2
+            if beefHealth == 3:
+                show hp 3
+
+        "Why was six afraid of seven?":
+
+            beef "Why?"
+
+            me "Because seven ate nine!"
+
+            show beef irritated
+            beef "A numbers joke? Laaaaame."
+
+    show beef neutral
+    beef "Let's see what else you've got!"
+
+    menu:
+        "Want to hear a poop joke?":
+
+            beef "Yes! Tell me."
+
+            me "Ah never mind, they all stink!"
+
+            show beef laugh_boob
+            beef "Ha! I like that. You're real funny."
+            play sound "audio/sfx clownhonk.mp3"
+
+            $ beefHealth += 1
+
+            if beefHealth == 1:
+                show hp 1
+            if beefHealth == 2:
+                show hp 2
+            if beefHealth == 3:
+                show hp 3
+
+        "What did the triangle say to the square?":
+
+            beef "What?"
+
+            me "You're pointless!"
+
+            show beef irritated_boob
+            beef "Dude, shapes? Really? Not cool."
 
     show beef neutral_boob
-    with hpunch
+    beef "Alright, last try. Give me everything you've got!"
 
-    beef "AHAHAHAHAAA what a jester you are!"
+    menu:
+
+        "Are monsters good at math?":
+
+            beef "I don't know, are they?"
+
+            me "Not unless you Count Dracula!"
+
+            show beef irritated_boob
+            beef "That joke sucks, man. Two thumbs down."
+
+        "What do you call a cow with no legs?":
+
+            beef "I don't know, what?"
+
+            me "Ground beef!"
+
+            show beef laugh_boob
+            beef "Ground beef! Because he's on the ground! Ahahaha."
+            play sound "audio/sfx clownhonk.mp3"
+
+            $ beefHealth += 1
+
+            if beefHealth == 1:
+                show hp 1
+            if beefHealth == 2:
+                show hp 2
+            if beefHealth == 3:
+                show hp 3
+
+    show beef neutral_boob
+    beef "Now get outta here, kid."
 
     jump scene_select
 
