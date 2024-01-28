@@ -78,3 +78,15 @@ label goth_cafe:
     melon "...What can I get you?"
 
     return
+
+
+label gun_wiz:
+    scene bg desert
+
+    return
+
+
+label clown_town:
+    scene bg clown_town
+
+    return
