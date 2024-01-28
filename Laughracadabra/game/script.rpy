@@ -15,6 +15,7 @@ define beef = Character("Beef", color="#000062")
 define slip = Character("Slip", color="#1e2900")
 define slay = Character("Slay", color="#61012d")
 define shrimp = Character("The High Prawn Wizard")
+define frog = Character("Frogbert", color="#3a703aff")
 
 # Wizard health variables
 default skaterHealth = 0
@@ -200,6 +201,7 @@ label cafe_scene:
                 show hp 3
 
     menu:
+        extend ""
         "Bad joke 2. (Replace this with dialogue.)":
             marble "You're not funny."
 
@@ -216,6 +218,7 @@ label cafe_scene:
                 show hp 3
 
     menu:
+        extend ""
         "Bad joke 3. (Replace this with dialogue.)":
             marble "You suck."
 
@@ -388,6 +391,28 @@ label tropics_scene:
     scene bg frogroom
     with fade
 
+    show frogfrog neutral
+    show hp 0:
+        zoom 0.5
+        xalign 0.05
+        yalign 0.05
+    
+    show frogfrog speak
+    frog "Ribbit."
+
+    menu:
+        "What the fuck.":
+            show frogfrog speak
+            frog "Have you never seen excellence before?"
+        
+        "Oh, I love frogs!":
+            show frogfrog laugh
+            frog "Finally, a person with taste in this hellscape."
+
+        "Kiss the frog.":
+            show frogfrog disgust
+            frog "Stay away from me."
+
     jump scene_select
 
 
@@ -548,7 +573,7 @@ label clown_town:
 label down_town:
     scene bg downtown
     with fade
-    
+
     play music "audio/bgm downtown.mp3"
 
     me "Damn."
