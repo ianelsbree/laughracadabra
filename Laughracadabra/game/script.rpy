@@ -514,7 +514,9 @@ label tropics_scene:
         show hp 3
         frog "No one has-ibbit made me -ribbit- laugh that much in a long time!"
 
-    jump scene_select
+    menu:
+        "It's a little hot. It would be a good idea to hydrate.":
+            jump ocean_floor
 
 
 label ocean_floor:
