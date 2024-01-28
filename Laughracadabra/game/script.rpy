@@ -216,7 +216,12 @@ label goth_cafe:
     
     marble "Get out."
 
-    jump scene_select
+    if gothHealth >= 3:
+        jump clown_town
+    if gothHealth <= 0:
+        jump down_town
+    else:
+        jump scene_select
 
 
 label gun_wiz:
@@ -261,6 +266,7 @@ label beef_house:
     with hpunch
 
     beef "AHAHAHAHAAA what a jester you are!"
+
 label frog_wiz:
     scene bg frogroom
     with fade
