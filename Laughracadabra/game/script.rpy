@@ -126,8 +126,6 @@ label skater_wiz:
         yalign 0.05
 
     skater_wizard "What's groovy, man?{w=1.0} What's your name?" (window_background="gui/boring_textbox.png")
-        
-    skater_wizard "What's groovy, man?{w=1.0} What's your name?"
 
     me "I'm {w=1.5}{nw}" (name="You", window_background="gui/boring_textbox.png")
 
