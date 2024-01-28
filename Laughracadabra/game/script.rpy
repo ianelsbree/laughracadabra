@@ -30,6 +30,9 @@ label scene_select:
         
         "The Desert":
             jump gun_wiz
+        
+        "The Tropics":
+            jump frog_wiz
 
 
 # The game starts here.
@@ -211,17 +214,13 @@ label goth_cafe:
                 show hp 0
     
     melon "Get out."
-    if gothHealth >= 3:
-        jump clown_town
-    else:
-        jump gun_wiz
 
     jump scene_select
 
 
 label gun_wiz:
 
-    scene bg desert
+    scene bg gundesert
     with fade
 
     me "Add dialogue."
@@ -246,12 +245,23 @@ label beef_house:
     
     jump scene_select
 
+label frog_wiz:
+    scene bg frogroom
+    with fade
+
+    jump scene_select
 
 label clown_town:
     scene bg clowntown
     play music "audio/bgm clowntown.mp3"
     
-    me "Damn."
+    me "Whoa! This is totally radical."
 
     return
 
+label down_town:
+    scene bg downtown
+
+    me "Damn."
+
+    return
