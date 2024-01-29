@@ -824,6 +824,8 @@ label ocean_floor:
     scene bg seafloor
     with fade
 
+    play music "audio/bgm shrimp.mp3"
+
     me "Am I underwater???"
 
     show shrimp_neutral
