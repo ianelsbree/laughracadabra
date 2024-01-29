@@ -488,10 +488,10 @@ label desert_scene:
             me "It exploded."
 
             show gun explode
+            play sound "audio/sfx clownhonk.mp3"
             pause 2.0
             show gun silly
             gun "HEHE SPLENDID!! NOW GO AGAIN!"
-            play sound "audio/sfx clownhonk.mp3"
 
             $ gunHealth += 1
 
@@ -532,10 +532,10 @@ label desert_scene:
             me "They exploded."
 
             show gun explode 
+            play sound "audio/sfx clownhonk.mp3"
             pause 2.0
             show gun silly
             gun "AHHHHAHAHAHAH WONDERFUL! TELL ME ANOTHER!!"
-            play sound "audio/sfx clownhonk.mp3"
 
             $ gunHealth += 1
 
@@ -558,10 +558,10 @@ label desert_scene:
             me "An exploded horse!"
 
             show gun explode
+            play sound "audio/sfx clownhonk.mp3"
             pause 2
             show gun silly
             gun "YEEE PAWWWW! YOU'RE ONE FUNNY FELLOW, PRRRRTNER!"
-            play sound "audio/sfx clownhonk.mp3"
 
             $ gunHealth += 1
 
