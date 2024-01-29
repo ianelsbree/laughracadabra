@@ -16,7 +16,7 @@ define slip = Character("Slip", color="#1e2900", image="slip")
 define slay = Character("Slay", color="#61012d", image="slay")
 define gun = Character("Gun", color="#6b1414", image="gun")
 define judge = Character("", what_font="Jokerman-Regular.ttf", what_size=40)
-define shrimp = Character("The High Prawn Wizard", color="#0000000", image="shrimp")
+define shrimp = Character("The High Prawn Wizard", color="#000000", image="shrimp")
 define frog = Character("Frogbert", color="#3a703aff", image="frog")
 define bug = Character("Persinnamon", color="#533991ff", image="bug")
 
@@ -289,7 +289,7 @@ label skatepark_scene:
             show bo thumb
             play sound "audio/sfx clownhonk.mp3"
 
-            $ skaterHealth += 1
+            $ skaterHealth = 3
 
             if skaterHealth == 1:
                 show hp 1
@@ -341,11 +341,11 @@ label cafe_scene:
         extend ""
         "Are you French?":
 
-            show marble_confused
+            show marble confused
             marble "...No, why?"
             me "Because Eifell for you!"
 
-            show marble_disturbed
+            show marble disturbed
 
             marble "Don't talk to me like that... You're my customer."
 
@@ -353,11 +353,11 @@ label cafe_scene:
 
         "What do you call it when your coffee gets stolen?":
 
-            show marble_confused
+            show marble confused
             marble "...{p}What?"
 
             me "A mugging!"
-            show marble_pleased
+            show marble pleased
             play sound "audio/sfx clownhonk.mp3"
 
             $ gothHealth += 1
@@ -375,21 +375,21 @@ label cafe_scene:
         extend ""
         "What do you call a thief who steals energy drinks?":
 
-            show marble_confused
+            show marble confused
             marble "I don't care. Coffee is way better."
 
             me "A power lifter!"
 
-            show marble_disturbed
+            show marble disturbed
             marble "Okay. Whatever."
 
         "What do you call a coffee shop that you're sure you've been to before?":
 
-            show marble_confused
+            show marble confused
             marble "Hmm?"
 
             me "Deja-brew!"
-            show marble_amused
+            show marble amused
             play sound "audio/sfx clownhonk.mp3"
 
             $ gothHealth += 1
@@ -406,23 +406,23 @@ label cafe_scene:
     menu:
         extend ""
         "What would a barista do in a shopping mall?":
-            show marble_confused
+            show marble confused
             marble "Um, what?"
 
             me "Make a coffee!"
 
-            show marble_upset
+            show marble upset
 
             marble "That sounds AI generated. I bet you looked that up on the internet. You're the worst."
 
         "What did the barista's best friend tell them?":
 
-            show marble_confused
+            show marble confused
             marble "What?"
 
             me "You mocha me very happy!"
 
-            show marble_pleased
+            show marble pleased
             play sound "audio/sfx clownhonk.mp3"
 
             $ gothHealth += 1
@@ -763,21 +763,16 @@ label tropics_scene:
 
     menu:
         "How does a frog feel when he has a broken leg?":
-            frog "How?"
-
+            frog "...How?"
             me "Unhoppy!"
-
             show frogfrog disgust
-            frog "Don't strain yourself."
+            frog "...That poor frog."
 
-        "Why are frogs so happy?":
-            frog "Why?"
-
-            me "They eat whatever bugs them!"
-
+        "Where do frogs go to get glasses?":
+            frog "...Where?"
+            me "The hoptician!"
             show frogfrog laugh
             $ frogHealth += 1
-
             frog "Ribbit, ribbit! I'll have to tell my colleagues at the lab that one."
 
     if frogHealth == 1:
@@ -803,7 +798,6 @@ label tropics_scene:
         "What do you call a fish with no eyes?":
             show frogfrog neutral
             frog "Don't say it."
-
             me "Fsh."
 
             show frogfrog disgust
@@ -828,13 +822,12 @@ label tropics_scene:
 
             $ frogHealth += 1
 
-        "What happens when two frogs collide?":
-            frog "What?"
-
-            me "They get tongue-tied."
+        "What do you call a 100 year old frog?":
+            frog "…A friend."
+            me "An old croak!"
             
             show frogfrog disgust
-            frog "That's inappropriate."
+            frog "…How rude."
     
     if frogHealth <= 0:
         frog "It's best that you leave."
@@ -855,9 +848,11 @@ label ocean_floor:
     scene bg seafloor
     with fade
 
+    play music "audio/bgm shrimp.mp3"
+
     me "Am I underwater???"
 
-    show shrimp_neutral
+    show shrimp neutral
     shrimp "BEHOLD, mere mortal!"
 
     me "..."
@@ -877,7 +872,7 @@ label ocean_floor:
         "What do you call a prawn who will not share his plant material, decaying organic matter, micro-organisms, small shellfish and worms?":
             shrimp "Hmm?"
             me "Shelfish!"
-            show shrimp_displeased
+            show shrimp displeased
             shrimp "Not funny!"
 
         "What did one prawn say to his special prawn friend?":
@@ -896,10 +891,10 @@ label ocean_floor:
             if shrimpHealth == 3:
                 show hp 3
 
-            show shrimp_laughter
+            show shrimp laugh
             shrimp "Ah! Ah ha ha!"
 
-    show shrimp_neutral
+    show shrimp neutral
     shrimp "Tell me another, you fool!"
 
     menu:
@@ -920,7 +915,7 @@ label ocean_floor:
             if shrimpHealth == 3:
                 show hp 3
 
-            show shrimp_laughter
+            show shrimp laugh
             shrimp "Wow! You are a very amusing mortal!"
 
         "How did the prawn perish?":
@@ -929,10 +924,10 @@ label ocean_floor:
 
             me "They contracted a deadly krillness!"
 
-            show shrimp_displeased
+            show shrimp displeased
             shrimp "That is not a funny topic! I do not laugh! No no!"
 
-    show shrimp_neutral
+    show shrimp neutral
     shrimp "One last chance at a joke for you!"
 
     menu:
@@ -947,7 +942,7 @@ label ocean_floor:
 
             shrimp "......"
 
-            show shrimp_laughter
+            show shrimp laugh
             play sound "audio/sfx clownhonk.mp3"
             shrimp "OH, I understand! Because I am a shrimp! Hahahahahahaha!!!"
 
@@ -970,10 +965,10 @@ label ocean_floor:
 
             shrimp "......"
 
-            show shrimp_displeased
+            show shrimp displeased
             shrimp "Not amusing enough. Begone!"
 
-    show shrimp_neutral
+    show shrimp neutral
     shrimp "Perhaps we shall meet again, mere mortal. Now begone from my throne of the High Prawn Wizard!"
 
     menu:
@@ -1009,7 +1004,7 @@ label bug_scene:
     menu:
         "How do you ask a Gardener out on a date?":
             bug "I don’t know…"
-            me "Have and Plants this evening?"
+            me "Have any Plants this evening?"
             bug "Hehehe…th-that’s pretty funny…do you have any more jokes?"
             $ bugHealth += 1
 
@@ -1054,7 +1049,7 @@ label bug_scene:
         "What is a murderer’s favorite genre of music?":
             bug "….I don’t know…."
             me "Death Metal!"
-            show bug disgust
+            show bug upset
             bug "Th-that’s horrible…"
 
         "What kind of bug likes being a DJ the most?":
