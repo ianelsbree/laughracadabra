@@ -34,6 +34,8 @@ define judgement = 0
 image spinner_clown = Movie(play="spin_for_clowntown.mpeg", loop=False, keep_last_frame=True)
 image spinner_down = Movie(play="spin_for_downtown.mpeg", loop=False, keep_last_frame=True)
 
+define choice = 0
+
 label scene_select:
     menu:
         "Where should I go next?"
@@ -488,10 +490,10 @@ label desert_scene:
             me "It exploded."
 
             show gun explode
+            play sound "audio/sfx clownhonk.mp3"
             pause 2.0
             show gun silly
             gun "HEHE SPLENDID!! NOW GO AGAIN!"
-            play sound "audio/sfx clownhonk.mp3"
 
             $ gunHealth += 1
 
@@ -532,10 +534,10 @@ label desert_scene:
             me "They exploded."
 
             show gun explode 
+            play sound "audio/sfx clownhonk.mp3"
             pause 2.0
             show gun silly
             gun "AHHHHAHAHAHAH WONDERFUL! TELL ME ANOTHER!!"
-            play sound "audio/sfx clownhonk.mp3"
 
             $ gunHealth += 1
 
@@ -558,10 +560,10 @@ label desert_scene:
             me "An exploded horse!"
 
             show gun explode
+            play sound "audio/sfx clownhonk.mp3"
             pause 2
             show gun silly
             gun "YEEE PAWWWW! YOU'RE ONE FUNNY FELLOW, PRRRRTNER!"
-            play sound "audio/sfx clownhonk.mp3"
 
             $ gunHealth += 1
 
@@ -1242,28 +1244,36 @@ label judgement_scene:
 
         "Bo Rad" if skaterHealth == 3:
             show bo thumb
+            $ choice = 0
 
         "Marble" if gothHealth == 3:
-            show marble 
+            show marble pleased
+            $ choice = 1
 
         "Gun" if gunHealth == 3:
             show gun silly
+            $ choice = 2
 
         "Frogbert" if frogHealth == 3:
             show frog laugh
+            $ choice = 3
 
         "Beef" if beefHealth == 3:
             show beef laugh boob
+            $ choice = 4
             
         "Slip & Slay" if devilHealth == 3:
             show slip laugh
             show slay laugh
+            $ choice = 5
 
         "The High Prawn Wizard" if shrimpHealth == 3:
             show shrimp laugh
+            $ choice = 6
 
         "Persinnamon" if bugHealth == 3:
             show bug blush
+            $ choice = 7
 
     judge "Now, to your judgement!"
 
@@ -1297,6 +1307,31 @@ label clown_town:
 
     play music "audio/bgm clowntown.mp3"
 
+    if choice == 0:
+        show bo thumb
+
+    if choice == 1:
+        show marble pleased
+
+    if choice == 2:
+        show gun silly
+
+    if choice == 3:
+        show frog laugh
+
+    if choice == 4:
+        show beef laugh boob
+
+    if choice == 5:
+        show slip laugh
+        show slay laugh
+
+    if choice == 6:
+        show shrimp laugh
+
+    if choice == 7:
+        show bug blush
+
     me "Hehehehehe."
 
     menu:
@@ -1311,6 +1346,31 @@ label down_town:
     with fade
 
     play music "audio/bgm downtown.mp3"
+
+    if choice == 0:
+        show bo neutral
+
+    if choice == 1:
+        show marble disturbed
+
+    if choice == 2:
+        show gun explode
+
+    if choice == 3:
+        show frog disgust
+
+    if choice == 4:
+        show beef boob sad
+
+    if choice == 5:
+        show slip upset
+        show slay sneer
+
+    if choice == 6:
+        show shrimp displeased
+
+    if choice == 7:
+        show bug upset
 
     me "Damn."
 
