@@ -138,6 +138,8 @@ label skatepark_scene:
     scene bg skatepark
     with fade
 
+    play music "audio/bgm skatepark.mp3"
+
     "It looks like it hasn't been touched since the 90's. There's graffiti everywhere." (window_background="gui/boring_textbox.png")
 
     show bo neutral
@@ -491,13 +493,13 @@ label desert_scene:
             gun "HEHE SPLENDID!! NOW GO AGAIN!"
             play sound "audio/sfx clownhonk.mp3"
 
-            $ beefHealth += 1
+            $ gunHealth += 1
 
-            if beefHealth == 1:
+            if gunHealth == 1:
                 show hp 1
-            if beefHealth == 2:
+            if gunHealth == 2:
                 show hp 2
-            if beefHealth == 3:
+            if gunHealth == 3:
                 show hp 3
 
         "What's a cat's favorite color?":
@@ -773,6 +775,7 @@ label tropics_scene:
             me "The hoptician!"
             show frogfrog laugh
             $ frogHealth += 1
+            play sound "audio/sfx clownhonk.mp3"
             frog "Ribbit, ribbit! I'll have to tell my colleagues at the lab that one."
 
     if frogHealth == 1:
@@ -792,8 +795,9 @@ label tropics_scene:
             me "Because they are fish with no eyes! Literaly!"
 
             show frogfrog laugh
-            frog "Ribbit, ribbit!"
             $ frogHealth += 1
+            play sound "audio/sfx clownhonk.mp3"
+            frog "Ribbit, ribbit!"
         
         "What do you call a fish with no eyes?":
             show frogfrog neutral
@@ -817,10 +821,10 @@ label tropics_scene:
             frog "What?"
             me "An am-fib-ian!"
 
-            show frogfrog laugh
-            frog "Ahahaha-ibbit-haha!"
-
             $ frogHealth += 1
+            show frogfrog laugh
+            play sound "audio/sfx clownhonk.mp3"
+            frog "Ahahaha-ibbit-haha!"
 
         "What do you call a 100 year old frog?":
             frog "…A friend."
@@ -1005,8 +1009,10 @@ label bug_scene:
         "How do you ask a Gardener out on a date?":
             bug "I don’t know…"
             me "Have any Plants this evening?"
-            bug "Hehehe…th-that’s pretty funny…do you have any more jokes?"
+            show bug laugh
             $ bugHealth += 1
+            play sound "audio/sfx clownhonk.mp3"
+            bug "Hehehe…th-that’s pretty funny…do you have any more jokes?"
 
         "Two cannibals were eating a stand-up comedian.":
             me "One says to the other, “Does this taste funny to you?” The other says, “No.”"
@@ -1034,6 +1040,7 @@ label bug_scene:
             bug "W-what do you call it?"
             me "A slow-man!"
             show bug laugh
+            play sound "audio/sfx clownhonk.mp3"
             bug "Wow, th-that’s so silly!"
             $ bugHealth += 1
 
@@ -1056,6 +1063,7 @@ label bug_scene:
             bug "I’m not sure, w-which one?"
             me "A Beat-le!"
             show bug laugh
+            play sound "audio/sfx clownhonk.mp3"
             bug "Hahaha! That’s a very good one…hehehe…"
             $ bugHealth += 1
 
