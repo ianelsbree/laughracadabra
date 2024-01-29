@@ -1100,6 +1100,7 @@ label town_scene:
             zoom 0.5
             xalign 0.05
             yalign 0.05
+    with easeinleft
 
     show slip talk_closed
     show slay talk_open
@@ -1133,8 +1134,10 @@ label town_scene:
 
             me "An Exorcise bike!"
 
+            play sound "audio/sfx clownhonk.mp3"
             show slay laugh
             show slip laugh_also
+
 
             $ devilHealth += 1
 
@@ -1154,6 +1157,7 @@ label town_scene:
             slay "..."
             me "Laughing gas!"
 
+            play sound "audio/sfx clownhonk.mp3"
             show slip laugh
             show slay sneer
 
@@ -1175,6 +1179,7 @@ label town_scene:
 
             me "It's probably why I got run over!"
 
+            play sound "audio/sfx clownhonk.mp3"
             $ devilHealth += 1
 
             if devilHealth == 1:
@@ -1232,6 +1237,8 @@ label town_scene:
 
             me "A brick!"
 
+            
+            play sound "audio/sfx clownhonk.mp3"
             show slip laugh
             show slay laugh
 
