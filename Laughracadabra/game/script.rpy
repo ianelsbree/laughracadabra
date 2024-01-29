@@ -763,21 +763,16 @@ label tropics_scene:
 
     menu:
         "How does a frog feel when he has a broken leg?":
-            frog "How?"
-
+            frog "...How?"
             me "Unhoppy!"
-
             show frogfrog disgust
-            frog "Don't strain yourself."
+            frog "...That poor frog."
 
-        "Why are frogs so happy?":
-            frog "Why?"
-
-            me "They eat whatever bugs them!"
-
+        "Where do frogs go to get glasses?":
+            frog "...Where?"
+            me "The hoptician!"
             show frogfrog laugh
             $ frogHealth += 1
-
             frog "Ribbit, ribbit! I'll have to tell my colleagues at the lab that one."
 
     if frogHealth == 1:
@@ -803,7 +798,6 @@ label tropics_scene:
         "What do you call a fish with no eyes?":
             show frogfrog neutral
             frog "Don't say it."
-
             me "Fsh."
 
             show frogfrog disgust
@@ -828,13 +822,12 @@ label tropics_scene:
 
             $ frogHealth += 1
 
-        "What happens when two frogs collide?":
-            frog "What?"
-
-            me "They get tongue-tied."
+        "What do you call a 100 year old frog?":
+            frog "…A friend."
+            me "An old croak!"
             
             show frogfrog disgust
-            frog "That's inappropriate."
+            frog "…How rude."
     
     if frogHealth <= 0:
         frog "It's best that you leave."
