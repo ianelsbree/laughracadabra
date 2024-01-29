@@ -140,6 +140,8 @@ label skatepark_scene:
     scene bg skatepark
     with fade
 
+    play music "audio/bgm skatepark.mp3"
+
     "It looks like it hasn't been touched since the 90's. There's graffiti everywhere." (window_background="gui/boring_textbox.png")
 
     show bo neutral
@@ -488,10 +490,10 @@ label desert_scene:
             me "It exploded."
 
             show gun explode
+            play sound "audio/sfx clownhonk.mp3"
             pause 2.0
             show gun silly
             gun "HEHE SPLENDID!! NOW GO AGAIN!"
-            play sound "audio/sfx clownhonk.mp3"
 
             $ gunHealth += 1
 
@@ -532,10 +534,10 @@ label desert_scene:
             me "They exploded."
 
             show gun explode 
+            play sound "audio/sfx clownhonk.mp3"
             pause 2.0
             show gun silly
             gun "AHHHHAHAHAHAH WONDERFUL! TELL ME ANOTHER!!"
-            play sound "audio/sfx clownhonk.mp3"
 
             $ gunHealth += 1
 
@@ -558,10 +560,10 @@ label desert_scene:
             me "An exploded horse!"
 
             show gun explode
+            play sound "audio/sfx clownhonk.mp3"
             pause 2
             show gun silly
             gun "YEEE PAWWWW! YOU'RE ONE FUNNY FELLOW, PRRRRTNER!"
-            play sound "audio/sfx clownhonk.mp3"
 
             $ gunHealth += 1
 
@@ -775,6 +777,7 @@ label tropics_scene:
             me "The hoptician!"
             show frogfrog laugh
             $ frogHealth += 1
+            play sound "audio/sfx clownhonk.mp3"
             frog "Ribbit, ribbit! I'll have to tell my colleagues at the lab that one."
 
     if frogHealth == 1:
@@ -794,8 +797,9 @@ label tropics_scene:
             me "Because they are fish with no eyes! Literaly!"
 
             show frogfrog laugh
-            frog "Ribbit, ribbit!"
             $ frogHealth += 1
+            play sound "audio/sfx clownhonk.mp3"
+            frog "Ribbit, ribbit!"
         
         "What do you call a fish with no eyes?":
             show frogfrog neutral
@@ -819,10 +823,10 @@ label tropics_scene:
             frog "What?"
             me "An am-fib-ian!"
 
-            show frogfrog laugh
-            frog "Ahahaha-ibbit-haha!"
-
             $ frogHealth += 1
+            show frogfrog laugh
+            play sound "audio/sfx clownhonk.mp3"
+            frog "Ahahaha-ibbit-haha!"
 
         "What do you call a 100 year old frog?":
             frog "…A friend."
@@ -1007,8 +1011,10 @@ label bug_scene:
         "How do you ask a Gardener out on a date?":
             bug "I don’t know…"
             me "Have any Plants this evening?"
-            bug "Hehehe…th-that’s pretty funny…do you have any more jokes?"
+            show bug laugh
             $ bugHealth += 1
+            play sound "audio/sfx clownhonk.mp3"
+            bug "Hehehe…th-that’s pretty funny…do you have any more jokes?"
 
         "Two cannibals were eating a stand-up comedian.":
             me "One says to the other, “Does this taste funny to you?” The other says, “No.”"
@@ -1036,6 +1042,7 @@ label bug_scene:
             bug "W-what do you call it?"
             me "A slow-man!"
             show bug laugh
+            play sound "audio/sfx clownhonk.mp3"
             bug "Wow, th-that’s so silly!"
             $ bugHealth += 1
 
@@ -1058,6 +1065,7 @@ label bug_scene:
             bug "I’m not sure, w-which one?"
             me "A Beat-le!"
             show bug laugh
+            play sound "audio/sfx clownhonk.mp3"
             bug "Hahaha! That’s a very good one…hehehe…"
             $ bugHealth += 1
 
@@ -1084,9 +1092,135 @@ label town_scene:
     show slay talk_closed
     show slip talk_closed
 
-    slip "Howdy!"
+    show slip talk_open
+    slip "HELLO TO THE LOVELY [name]!!!"
+    slip "WE are teh WORLD RENOWNED Devil Husband CLOWN performers!!!"
 
-    slay "Meowdy."
+    show slip talk_closed
+    show slay talk_open
+
+    slay "He is the world renowned Devil Husband clown.{p}I am his barely willing partner in comedy."
+
+    show slay talk_closed
+    show slip talk_open
+
+    slip "Shut up!"
+
+    show slip laugh_also
+
+    slip "MY name is Slip!"
+
+    show slay talk_open
+
+    slay "My name is Slay."
+
+    slip "And we saw YOU across the square and really like your vibe!!!!"
+    slip "And we'd LOVE to have a COMEDY WIZARD DUEL!!!"
+
+    menu:
+        "What gym equipment do devils never use?":
+
+            show slip talk_open
+            show slay talk_open
+
+            slip "OH DO TELL."
+            slay "This feels targeted..."
+
+            me "An Exorcise bike!"
+
+            show slay laugh
+            show slip laugh_also
+
+            slay "Hehe whatever.{p} ...That was kinda funny."
+            slip "You NEVER laugh at actual jokes... it's so nice to hear again!!!"
+
+        "What do clowns use to fuel their cars?":
+
+            slip "Oh I LOVE clown jokes!"
+            slay "..."
+            me "Laughing gas!"
+
+            show slip laugh
+            show slay sneer
+
+            slip "HAHAHAHAHAHAHAHAH DELIGHTFUL!!!"
+            slay "Eugh. Foul."
+
+    show slip neutral
+    show slay neutral
+
+    slip "Give us another one."
+
+    menu:
+        "I was sitting in traffic the other day...":
+
+            show slip upset
+            show slay talk_closed
+
+            slay "Hmm?"
+
+            me "It's probably why I got run over!"
+
+            show slay laugh
+            slay "hehehehehehehe"
+
+            show slip laugh_also
+            slip "If I'd known that all I had to do to get you to laugh was get run over I would have done it ages ago!"
+
+        "Why are devils never invited to parties?":
+
+            slip "I'D LOVE TO FIND OUT!"
+
+            slay "Do tell."
+
+            me "They have a tendency to raise H E double hockey sticks!"
+
+            show slip upsetshow slay sneer
+
+            slip "Oh that's not funny. Or nice."
+            slay "It's okay... They didn't know."
+
+    slay "This is your last chance to make us laugh."
+
+    menu:
+        "How do you make a devil laugh?":
+            slip "I've been trying to figure this one out for years!!!"
+            slay "I have found that violence works..."
+
+            me "Give it a funny bone!"
+
+            show slip upset
+            show slay sneer
+
+            slip "That's for skeletons. The joke is how do you make a skeleton laugh."
+            slay "Wow, that was depressing."
+
+            slip "I don't even know what to say."
+            slip "I just don't want to see you ever again... I'm sorry."
+            slay "Look what you've done to by beautiful giggly husband."
+            slay "Now I have to stream 18 hours of Seinfeld to raise his spirits again."
+            slip "Begone from this place!"
+
+        "What's red and bad for your teeth?":
+
+            slip "WHAT???"
+            slay "What?"
+
+            me "A brick!"
+
+            show slip laugh
+            show slay laugh
+
+            slay "Okay that one's pretty good."
+            slip "Oh it's DELIGHTFUL to hear you laugh so much my love!"\
+
+            show slay talk_open
+            show slip laugh_also
+
+            slay "alright... you're pretty funny."
+            slip "A TRUE DISPLAY OF COMEDIC GENIUS!!!!!!!!!"
+
+            slay "We'll see you again soon!"
 
 
     "You realize there's nowhere left to go. Time to face the music."
