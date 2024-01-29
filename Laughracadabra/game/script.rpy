@@ -1091,6 +1091,7 @@ label judgement_scene:
 
     scene bg spinner
     with fade
+    play music "audio/bgm wheeloffortune.mp3"
 
     judge "Welcome! You may take one companion with you,{w=0.5} and you can choose from those whom you've made laugh during your adventures."
 
