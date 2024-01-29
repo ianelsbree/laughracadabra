@@ -1096,6 +1096,11 @@ label town_scene:
     slip "HELLO TO THE LOVELY [name]!!!"
     slip "WE are teh WORLD RENOWNED Devil Husband CLOWN performers!!!"
 
+    show hp 0:
+            zoom 0.5
+            xalign 0.05
+            yalign 0.05
+
     show slip talk_closed
     show slay talk_open
 
@@ -1131,6 +1136,15 @@ label town_scene:
             show slay laugh
             show slip laugh_also
 
+            $ devilHealth += 1
+
+            if devilHealth == 1:
+                show hp 1
+            if devilHealth == 2:
+                show hp 2
+            if devilHealth == 3:
+                show hp 3
+
             slay "Hehe whatever.{p} ...That was kinda funny."
             slip "You NEVER laugh at actual jokes... it's so nice to hear again!!!"
 
@@ -1160,6 +1174,15 @@ label town_scene:
             slay "Hmm?"
 
             me "It's probably why I got run over!"
+
+            $ devilHealth += 1
+
+            if devilHealth == 1:
+                show hp 1
+            if devilHealth == 2:
+                show hp 2
+            if devilHealth == 3:
+                show hp 3
 
             show slay laugh
             slay "hehehehehehehe"
@@ -1211,6 +1234,16 @@ label town_scene:
 
             show slip laugh
             show slay laugh
+
+            $ devilHealth += 1
+
+            if devilHealth == 1:
+                show hp 1
+            if devilHealth == 2:
+                show hp 2
+            if devilHealth == 3:
+                show hp 3
+
 
             slay "Okay that one's pretty good."
             slip "Oh it's DELIGHTFUL to hear you laugh so much my love!"
