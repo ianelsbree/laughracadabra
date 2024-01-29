@@ -339,14 +339,25 @@ label cafe_scene:
 
     menu:
         extend ""
-        "Bad joke. (Replace this with dialogue.)":
-            marble "Zzz."
+        "Are you French?":
+
+            show marble_confused
+            marble "...No, why?"
+            me "Because Eifell for you!"
+
+            show marble_disturbed
+
+            marble "Don't talk to me like that... You're my customer."
+
+            marble "I'd rather jump off a cliff."
 
         "What do you call it when your coffee gets stolen?":
 
+            show marble_confused
             marble "...{p}What?"
 
             me "A mugging!"
+            show marble_pleased
             play sound "audio/sfx clownhonk.mp3"
 
             $ gothHealth += 1
@@ -362,14 +373,23 @@ label cafe_scene:
 
     menu:
         extend ""
-        "Bad joke 2. (Replace this with dialogue.)":
-            marble "You're not funny."
+        "What do you call a thief who steals energy drinks?":
+
+            show marble_confused
+            marble "I don't care. Coffee is way better."
+
+            me "A power lifter!"
+
+            show marble_disturbed
+            marble "Okay. Whatever."
 
         "What do you call a coffee shop that you're sure you've been to before?":
 
+            show marble_confused
             marble "Hmm?"
 
             me "Deja-brew!"
+            show marble_amused
             play sound "audio/sfx clownhonk.mp3"
 
             $ gothHealth += 1
@@ -385,14 +405,24 @@ label cafe_scene:
 
     menu:
         extend ""
-        "Bad joke 3. (Replace this with dialogue.)":
-            marble "You suck."
+        "What would a barista do in a shopping mall?":
+            show marble_confused
+            marble "Um, what?"
+
+            me "Make a coffee!"
+
+            show marble_upset
+
+            marble "That sounds AI generated. I bet you looked that up on the internet. You're the worst."
 
         "What did the barista's best friend tell them?":
 
+            show marble_confused
             marble "What?"
 
             me "You mocha me very happy!"
+
+            show marble_pleased
             play sound "audio/sfx clownhonk.mp3"
 
             $ gothHealth += 1
@@ -406,6 +436,7 @@ label cafe_scene:
 
             marble "Ha! You mocha me happy, [name]."
     
+    show marble neutral
     marble "Have a nice day. {p}Get out."
 
     menu:
@@ -1063,12 +1094,41 @@ label judgement_scene:
     scene bg spinner
     with fade
 
-    judge "Welcome to your judgement!"
+    judge "Welcome! You may take one companion with you,{w=0.5} and you can choose from those whom you've made laugh during your adventures."
 
-    judge "Let's see where you're headed!"
+    menu:
+        judge "Who will you choose?"
+
+        "Bo Rad" if skaterHealth == 3:
+            show skater thumb
+
+        "Marble" if gothHealth == 3:
+            show marble 
+
+        "Gun" if gunHealth == 3:
+            show gun silly
+
+        "Frogbert" if frogHealth == 3:
+            show frog laugh
+
+        "Beef" if beefHealth == 3:
+            show beef laugh boob
+            
+        "Slip & Slay" if devilHealth == 3:
+            show slip laugh
+            show slay laugh
+
+        "The High Prawn Wizard" if shrimpHealth == 3:
+            show shrimp laugh
+
+        "Persinnamon" if bugHealth == 3:
+            show bug blush
+
+    judge "Now, to your judgement!"
+
+    judge "Let's see where you two are headed!"
 
     $ judgement = renpy.random.randint(0, 1)
-    # $ judgement = 1
 
     if judgement == 0:
         jump judgement_clown
