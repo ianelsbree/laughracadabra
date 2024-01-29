@@ -16,7 +16,7 @@ define slip = Character("Slip", color="#1e2900", image="slip")
 define slay = Character("Slay", color="#61012d", image="slay")
 define gun = Character("Gun", color="#6b1414", image="gun")
 define judge = Character("", what_font="Jokerman-Regular.ttf", what_size=40)
-define shrimp = Character("The High Prawn Wizard", color="#0000000", image="shrimp")
+define shrimp = Character("The High Prawn Wizard", color="#000000", image="shrimp")
 define frog = Character("Frogbert", color="#3a703aff", image="frog")
 define bug = Character("Persinnamon", color="#533991ff", image="bug")
 
@@ -289,7 +289,7 @@ label skatepark_scene:
             show bo thumb
             play sound "audio/sfx clownhonk.mp3"
 
-            $ skaterHealth += 1
+            $ skaterHealth = 3
 
             if skaterHealth == 1:
                 show hp 1
@@ -341,11 +341,11 @@ label cafe_scene:
         extend ""
         "Are you French?":
 
-            show marble_confused
+            show marble confused
             marble "...No, why?"
             me "Because Eifell for you!"
 
-            show marble_disturbed
+            show marble disturbed
 
             marble "Don't talk to me like that... You're my customer."
 
@@ -353,11 +353,11 @@ label cafe_scene:
 
         "What do you call it when your coffee gets stolen?":
 
-            show marble_confused
+            show marble confused
             marble "...{p}What?"
 
             me "A mugging!"
-            show marble_pleased
+            show marble pleased
             play sound "audio/sfx clownhonk.mp3"
 
             $ gothHealth += 1
@@ -375,21 +375,21 @@ label cafe_scene:
         extend ""
         "What do you call a thief who steals energy drinks?":
 
-            show marble_confused
+            show marble confused
             marble "I don't care. Coffee is way better."
 
             me "A power lifter!"
 
-            show marble_disturbed
+            show marble disturbed
             marble "Okay. Whatever."
 
         "What do you call a coffee shop that you're sure you've been to before?":
 
-            show marble_confused
+            show marble confused
             marble "Hmm?"
 
             me "Deja-brew!"
-            show marble_amused
+            show marble amused
             play sound "audio/sfx clownhonk.mp3"
 
             $ gothHealth += 1
@@ -406,23 +406,23 @@ label cafe_scene:
     menu:
         extend ""
         "What would a barista do in a shopping mall?":
-            show marble_confused
+            show marble confused
             marble "Um, what?"
 
             me "Make a coffee!"
 
-            show marble_upset
+            show marble upset
 
             marble "That sounds AI generated. I bet you looked that up on the internet. You're the worst."
 
         "What did the barista's best friend tell them?":
 
-            show marble_confused
+            show marble confused
             marble "What?"
 
             me "You mocha me very happy!"
 
-            show marble_pleased
+            show marble pleased
             play sound "audio/sfx clownhonk.mp3"
 
             $ gothHealth += 1
