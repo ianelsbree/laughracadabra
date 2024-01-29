@@ -970,7 +970,10 @@ label ocean_floor:
 
     show shrimp neutral
     shrimp "Perhaps we shall meet again, mere mortal. Now begone from my throne of the High Prawn Wizard!"
-    jump bug_scene
+
+    menu:
+        "Let's head to the forest.":
+            jump bug_scene
 
 label bug_scene:
     scene bg bug
@@ -1066,7 +1069,10 @@ label bug_scene:
         show hp 3
         bug "You’re really funny! It's been lovely to hang out with you! Let’s hang out again sometime!"
 
-    jump town_scene
+
+    menu:
+        "I'm gonna head back to town.":
+            jump town_scene
 
 label town_scene:
     
@@ -1080,7 +1086,13 @@ label town_scene:
 
     slay "Meowdy."
 
-    jump scene_select
+
+    "You realize there's nowhere left to go. Time to face the music."
+    menu:
+        extend ""
+
+        "I'm all done exploring.":
+            jump judgement_scene
 
 label judgement_scene:
 
