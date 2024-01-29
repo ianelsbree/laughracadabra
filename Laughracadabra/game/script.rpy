@@ -491,13 +491,13 @@ label desert_scene:
             gun "HEHE SPLENDID!! NOW GO AGAIN!"
             play sound "audio/sfx clownhonk.mp3"
 
-            $ beefHealth += 1
+            $ gunHealth += 1
 
-            if beefHealth == 1:
+            if gunHealth == 1:
                 show hp 1
-            if beefHealth == 2:
+            if gunHealth == 2:
                 show hp 2
-            if beefHealth == 3:
+            if gunHealth == 3:
                 show hp 3
 
         "What's a cat's favorite color?":
@@ -535,13 +535,13 @@ label desert_scene:
             gun "AHHHHAHAHAHAH WONDERFUL! TELL ME ANOTHER!!"
             play sound "audio/sfx clownhonk.mp3"
 
-            $ beefHealth += 1
+            $ gunHealth += 1
 
-            if beefHealth == 1:
+            if gunHealth == 1:
                 show hp 1
-            if beefHealth == 2:
+            if gunHealth == 2:
                 show hp 2
-            if beefHealth == 3:
+            if gunHealth == 3:
                 show hp 3
 
     show gun neutral
@@ -561,13 +561,13 @@ label desert_scene:
             gun "YEEE PAWWWW! YOU'RE ONE FUNNY FELLOW, PRRRRTNER!"
             play sound "audio/sfx clownhonk.mp3"
 
-            $ beefHealth += 1
+            $ gunHealth += 1
 
-            if beefHealth == 1:
+            if gunHealth == 1:
                 show hp 1
-            if beefHealth == 2:
+            if gunHealth == 2:
                 show hp 2
-            if beefHealth == 3:
+            if gunHealth == 3:
                 show hp 3
 
             gun "YA SURE GAVE ME A CHUCKLE!"
