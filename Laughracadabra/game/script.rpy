@@ -857,7 +857,7 @@ label ocean_floor:
 
     me "Am I underwater???"
 
-    show shrimp_neutral
+    show shrimp neutral
     shrimp "BEHOLD, mere mortal!"
 
     me "..."
@@ -877,7 +877,7 @@ label ocean_floor:
         "What do you call a prawn who will not share his plant material, decaying organic matter, micro-organisms, small shellfish and worms?":
             shrimp "Hmm?"
             me "Shelfish!"
-            show shrimp_displeased
+            show shrimp displeased
             shrimp "Not funny!"
 
         "What did one prawn say to his special prawn friend?":
@@ -896,10 +896,10 @@ label ocean_floor:
             if shrimpHealth == 3:
                 show hp 3
 
-            show shrimp_laughter
+            show shrimp laugh
             shrimp "Ah! Ah ha ha!"
 
-    show shrimp_neutral
+    show shrimp neutral
     shrimp "Tell me another, you fool!"
 
     menu:
@@ -920,7 +920,7 @@ label ocean_floor:
             if shrimpHealth == 3:
                 show hp 3
 
-            show shrimp_laughter
+            show shrimp laugh
             shrimp "Wow! You are a very amusing mortal!"
 
         "How did the prawn perish?":
@@ -929,10 +929,10 @@ label ocean_floor:
 
             me "They contracted a deadly krillness!"
 
-            show shrimp_displeased
+            show shrimp displeased
             shrimp "That is not a funny topic! I do not laugh! No no!"
 
-    show shrimp_neutral
+    show shrimp neutral
     shrimp "One last chance at a joke for you!"
 
     menu:
@@ -947,7 +947,7 @@ label ocean_floor:
 
             shrimp "......"
 
-            show shrimp_laughter
+            show shrimp laugh
             play sound "audio/sfx clownhonk.mp3"
             shrimp "OH, I understand! Because I am a shrimp! Hahahahahahaha!!!"
 
@@ -970,10 +970,10 @@ label ocean_floor:
 
             shrimp "......"
 
-            show shrimp_displeased
+            show shrimp displeased
             shrimp "Not amusing enough. Begone!"
 
-    show shrimp_neutral
+    show shrimp neutral
     shrimp "Perhaps we shall meet again, mere mortal. Now begone from my throne of the High Prawn Wizard!"
     jump bug_scene
 
@@ -1006,7 +1006,7 @@ label bug_scene:
     menu:
         "How do you ask a Gardener out on a date?":
             bug "I don’t know…"
-            me "Have and Plants this evening?"
+            me "Have any Plants this evening?"
             bug "Hehehe…th-that’s pretty funny…do you have any more jokes?"
             $ bugHealth += 1
 
@@ -1051,7 +1051,7 @@ label bug_scene:
         "What is a murderer’s favorite genre of music?":
             bug "….I don’t know…."
             me "Death Metal!"
-            show bug disgust
+            show bug upset
             bug "Th-that’s horrible…"
 
         "What kind of bug likes being a DJ the most?":
