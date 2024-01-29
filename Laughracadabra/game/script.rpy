@@ -1144,7 +1144,7 @@ label town_scene:
             slip "HAHAHAHAHAHAHAHAH DELIGHTFUL!!!"
             slay "Eugh. Foul."
 
-    show slip neutral
+    show slip laugh_also
     show slay neutral
 
     slip "Give us another one."
@@ -1173,7 +1173,8 @@ label town_scene:
 
             me "They have a tendency to raise H E double hockey sticks!"
 
-            show slip upsetshow slay sneer
+            show slip upset
+            show slay sneer
 
             slip "Oh that's not funny. Or nice."
             slay "It's okay... They didn't know."
@@ -1210,7 +1211,7 @@ label town_scene:
             show slay laugh
 
             slay "Okay that one's pretty good."
-            slip "Oh it's DELIGHTFUL to hear you laugh so much my love!"\
+            slip "Oh it's DELIGHTFUL to hear you laugh so much my love!"
 
             show slay talk_open
             show slip laugh_also
