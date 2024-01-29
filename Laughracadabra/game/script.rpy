@@ -138,6 +138,8 @@ label skatepark_scene:
     scene bg skatepark
     with fade
 
+    play music "audio/bgm skatepark.mp3"
+
     "It looks like it hasn't been touched since the 90's. There's graffiti everywhere." (window_background="gui/boring_textbox.png")
 
     show bo neutral
@@ -491,13 +493,13 @@ label desert_scene:
             gun "HEHE SPLENDID!! NOW GO AGAIN!"
             play sound "audio/sfx clownhonk.mp3"
 
-            $ beefHealth += 1
+            $ gunHealth += 1
 
-            if beefHealth == 1:
+            if gunHealth == 1:
                 show hp 1
-            if beefHealth == 2:
+            if gunHealth == 2:
                 show hp 2
-            if beefHealth == 3:
+            if gunHealth == 3:
                 show hp 3
 
         "What's a cat's favorite color?":
@@ -535,13 +537,13 @@ label desert_scene:
             gun "AHHHHAHAHAHAH WONDERFUL! TELL ME ANOTHER!!"
             play sound "audio/sfx clownhonk.mp3"
 
-            $ beefHealth += 1
+            $ gunHealth += 1
 
-            if beefHealth == 1:
+            if gunHealth == 1:
                 show hp 1
-            if beefHealth == 2:
+            if gunHealth == 2:
                 show hp 2
-            if beefHealth == 3:
+            if gunHealth == 3:
                 show hp 3
 
     show gun neutral
@@ -561,13 +563,13 @@ label desert_scene:
             gun "YEEE PAWWWW! YOU'RE ONE FUNNY FELLOW, PRRRRTNER!"
             play sound "audio/sfx clownhonk.mp3"
 
-            $ beefHealth += 1
+            $ gunHealth += 1
 
-            if beefHealth == 1:
+            if gunHealth == 1:
                 show hp 1
-            if beefHealth == 2:
+            if gunHealth == 2:
                 show hp 2
-            if beefHealth == 3:
+            if gunHealth == 3:
                 show hp 3
 
             gun "YA SURE GAVE ME A CHUCKLE!"
@@ -763,21 +765,17 @@ label tropics_scene:
 
     menu:
         "How does a frog feel when he has a broken leg?":
-            frog "How?"
-
+            frog "...How?"
             me "Unhoppy!"
-
             show frogfrog disgust
-            frog "Don't strain yourself."
+            frog "...That poor frog."
 
-        "Why are frogs so happy?":
-            frog "Why?"
-
-            me "They eat whatever bugs them!"
-
+        "Where do frogs go to get glasses?":
+            frog "...Where?"
+            me "The hoptician!"
             show frogfrog laugh
             $ frogHealth += 1
-
+            play sound "audio/sfx clownhonk.mp3"
             frog "Ribbit, ribbit! I'll have to tell my colleagues at the lab that one."
 
     if frogHealth == 1:
@@ -797,13 +795,13 @@ label tropics_scene:
             me "Because they are fish with no eyes! Literaly!"
 
             show frogfrog laugh
-            frog "Ribbit, ribbit!"
             $ frogHealth += 1
+            play sound "audio/sfx clownhonk.mp3"
+            frog "Ribbit, ribbit!"
         
         "What do you call a fish with no eyes?":
             show frogfrog neutral
             frog "Don't say it."
-
             me "Fsh."
 
             show frogfrog disgust
@@ -823,18 +821,17 @@ label tropics_scene:
             frog "What?"
             me "An am-fib-ian!"
 
+            $ frogHealth += 1
             show frogfrog laugh
+            play sound "audio/sfx clownhonk.mp3"
             frog "Ahahaha-ibbit-haha!"
 
-            $ frogHealth += 1
-
-        "What happens when two frogs collide?":
-            frog "What?"
-
-            me "They get tongue-tied."
+        "What do you call a 100 year old frog?":
+            frog "…A friend."
+            me "An old croak!"
             
             show frogfrog disgust
-            frog "That's inappropriate."
+            frog "…How rude."
     
     if frogHealth <= 0:
         frog "It's best that you leave."
@@ -977,7 +974,10 @@ label ocean_floor:
 
     show shrimp neutral
     shrimp "Perhaps we shall meet again, mere mortal. Now begone from my throne of the High Prawn Wizard!"
-    jump bug_scene
+
+    menu:
+        "Let's head to the forest.":
+            jump bug_scene
 
 label bug_scene:
     scene bg bug
@@ -1009,8 +1009,10 @@ label bug_scene:
         "How do you ask a Gardener out on a date?":
             bug "I don’t know…"
             me "Have any Plants this evening?"
-            bug "Hehehe…th-that’s pretty funny…do you have any more jokes?"
+            show bug laugh
             $ bugHealth += 1
+            play sound "audio/sfx clownhonk.mp3"
+            bug "Hehehe…th-that’s pretty funny…do you have any more jokes?"
 
         "Two cannibals were eating a stand-up comedian.":
             me "One says to the other, “Does this taste funny to you?” The other says, “No.”"
@@ -1038,6 +1040,7 @@ label bug_scene:
             bug "W-what do you call it?"
             me "A slow-man!"
             show bug laugh
+            play sound "audio/sfx clownhonk.mp3"
             bug "Wow, th-that’s so silly!"
             $ bugHealth += 1
 
@@ -1060,6 +1063,7 @@ label bug_scene:
             bug "I’m not sure, w-which one?"
             me "A Beat-le!"
             show bug laugh
+            play sound "audio/sfx clownhonk.mp3"
             bug "Hahaha! That’s a very good one…hehehe…"
             $ bugHealth += 1
 
@@ -1073,7 +1077,10 @@ label bug_scene:
         show hp 3
         bug "You’re really funny! It's been lovely to hang out with you! Let’s hang out again sometime!"
 
-    jump town_scene
+
+    menu:
+        "I'm gonna head back to town.":
+            jump town_scene
 
 label town_scene:
     
@@ -1214,6 +1221,13 @@ label town_scene:
             slay "We'll see you again soon!"
 
 
+    "You realize there's nowhere left to go. Time to face the music."
+    menu:
+        extend ""
+
+        "I'm all done exploring.":
+            jump judgement_scene
+
 label judgement_scene:
 
     scene bg spinner
@@ -1226,7 +1240,7 @@ label judgement_scene:
         judge "Who will you choose?"
 
         "Bo Rad" if skaterHealth == 3:
-            show skater thumb
+            show bo thumb
 
         "Marble" if gothHealth == 3:
             show marble 
