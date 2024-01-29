@@ -1106,7 +1106,7 @@ label judgement_scene:
         judge "Who will you choose?"
 
         "Bo Rad" if skaterHealth == 3:
-            show skater thumb
+            show bo thumb
 
         "Marble" if gothHealth == 3:
             show marble 
